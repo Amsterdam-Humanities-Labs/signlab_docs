@@ -85,6 +85,9 @@ The **Motion capture** menu item opens the portal with four doors.
 | **signCollect Avatar Player** | Play baked avatar animations |
 | **Vicon Dashboard Sync** | See whether every Vicon capture arrived complete |
 
+For the dataset as a whole, and to find or download animation files in bulk,
+open **`/mocapOverview/`** ([Mocap overview and file API](../interfaces/mocap-overview.md)).
+
 ![Motion Capture File Manager](../assets/screenshots/mocap-file-manager.png)
 
 ![Motion Capture Studio](../assets/screenshots/mocap-studio.png)

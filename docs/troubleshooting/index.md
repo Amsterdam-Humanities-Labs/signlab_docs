@@ -52,11 +52,11 @@ Never send passwords or upload tokens.
 | [Annotation tool](annotation-tool.md) | v3, webcam and clusters modes, autosave, video conversion, spotting, Smart Search | 15 |
 | [Recording sessions](recording.md) | FX30 cameras, Camera Control, batteries, overheating, QR codes, downloading clips | 18 |
 | [Video processing and studio archive](video-processing.md) | Crops and the Crop Fix Manager, green screen to blue, thumbnails, missing angles, the DRS pipeline | 17 |
-| [Motion capture](mocap.md) | Vicon sync, viconDashboard, the mocap studio page, FBX post-processing, GLB viewers, blendbaking, SAM 3D body queue | 21 |
+| [Motion capture](mocap.md) | Vicon sync, viconDashboard, the mocap studio page, FBX post-processing, GLB viewers, blendbaking, SAM 3D body queue | 23 |
 | [Blackmagic cameras](blackmagic.md) | Camera control, recording settings, copies to the research drive | 9 |
 | [Uploads, tokens, API and patient-info](uploads.md) | Video uploads, upload tokens, API errors, patient-info texts | 11 |
 | [Monitoring and alerts](monitoring.md) | The client monitor dashboard, heartbeats, disk, mount and database alerts | 11 |
 | [Server and system](system.md) | Site down, database down, disk full, certificate, slow pages, stopped jobs | 14 |
 | [Browser problems](browser.md) | Cache, autoplay, codecs, pop-ups, camera access, WebGL | 8 |
 
-**Total: 180 issues.**
+**Total: 182 issues.**
