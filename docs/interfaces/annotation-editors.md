@@ -35,7 +35,8 @@ Both editors save your work on the server as an EAF file, one per video.
     - **+ Add Subtitle:** add a short, empty annotation at the start of the
       first tier (*Nederlands*). Drag it into place and type its text.
     - **Regex:** help for the search patterns.
-    - **Download Subtitles:** save the annotations to your computer.
+    - **Download Subtitles:** save each tier as a WebVTT subtitle file
+      (`.vtt`).
     - **Autosave Enabled:** shows the save state (see below).
     - **Disable Autoloop:** while the video plays, hovering over an
       annotation replays it. This button turns that off.

@@ -52,7 +52,7 @@ Your decisions are saved on the server as you go.
 
 1. Open <https://signcollect.nl/annotation-tool/clusters/videos.html>.
 2. Filter by category and by status (**klaar** or **niet klaar**). The
-   confidence columns show how sure the pipeline was; start with the lowest.
+   confidence columns show how sure the pipeline was.
 3. Click **open ▶**. The video opens in the annotation tool in clusters mode.
    This mode needs a login.
 4. Correct the segments and their glosses on the timeline. The tool saves on
