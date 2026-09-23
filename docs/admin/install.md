@@ -27,32 +27,31 @@ in the stack repository (private).
    half way.
 3. **Tailscale, joined and logged in** (`sudo tailscale up`). The host's name
    and its TLS certificate both come from Tailscale.
-4. **Access to the GitHub organisation** Amsterdam-Humanities-Labs. The host
-   clones about seventeen private repositories, so it needs outbound HTTPS to
-   github.com.
+4. **Outbound HTTPS to github.com.** The host clones about twenty public
+   repositories from Amsterdam-Humanities-Labs. No GitHub account is needed.
 5. **Room:** at least 3 GB free disk (5 GB is comfortable) and about 1 GB of
    RAM. With less memory, MySQL often does not start.
 
 ## Install
 
-Open a terminal on the host and run these four lines:
+Open a terminal on the host and run these three lines:
 
 ```bash
-sudo apt update && sudo apt install -y git gh
-gh auth login --hostname github.com --git-protocol https --web
-gh repo clone Amsterdam-Humanities-Labs/signlab_signcollect-stack ~/signcollect-deploy
+sudo apt update && sudo apt install -y git
+git clone https://github.com/Amsterdam-Humanities-Labs/signlab_signcollect-stack ~/signcollect-deploy
 ~/signcollect-deploy/interface_deploy/scripts/install.sh --local
 ```
 
-1. Line 1 installs git and the GitHub CLI.
-2. Line 2 shows a one-time code. Open <https://github.com/login/device> in a
-   browser, enter the code and approve. You do not need a personal access
-   token.
-3. Line 3 clones the deploy toolchain.
-4. Line 4 runs the install. It first checks everything it needs, and changes
+1. Line 1 installs git.
+2. Line 2 clones the deploy toolchain.
+3. Line 3 runs the install. It first checks everything it needs, and changes
    nothing until those checks pass. On a bare host it takes a few minutes.
 
 The site is then served at the host's Tailscale name, over HTTPS.
+
+!!! note "A repository that is still private"
+    The installer checks every repository anonymously. If one is private, it
+    names it and asks for a GitHub login (`gh auth login`) at step 3.
 
 !!! tip "See what it would do first"
     Add `--dry-run` to the last line. It reports what each step would change,
