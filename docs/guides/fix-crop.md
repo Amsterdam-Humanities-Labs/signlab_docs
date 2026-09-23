@@ -25,6 +25,9 @@ take in the queue to be cropped again with a wider frame.
 
 <!-- screenshot: crop fix row with OOB Bottom checkbox and Fix Crop button, page /videoFix/ -->
 
+![Crop fix row with OOB Bottom checkbox and Fix Crop button](../assets/screenshots/crop-fix-manager.png)
+
+
 ## 3. Wait for the new crop
 
 The studio pipeline picks up the queue, crops the left, middle and right

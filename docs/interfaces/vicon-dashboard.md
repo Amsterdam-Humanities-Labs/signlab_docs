@@ -15,6 +15,9 @@ complete, and download links for them.
 
 <!-- screenshot: Vicon Capture Dashboard with date overview and live feed, page /viconDashboard/ -->
 
+![Vicon Capture Dashboard with date overview and live feed](../assets/screenshots/vicon-dashboard.png)
+
+
 ## The screen
 
 ### Header

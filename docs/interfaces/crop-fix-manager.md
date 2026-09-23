@@ -20,6 +20,9 @@ camera file, for example `M20251001_2313`.
 
 <!-- screenshot: Crop Fix Manager with search box and the three tabs, page /videoFix/ -->
 
+![Crop Fix Manager with search box and the three tabs](../assets/screenshots/crop-fix-manager.png)
+
+
 ## The screen
 
 - **Search:** type part of a file name, for example `M20251001_2313`. Partial

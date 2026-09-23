@@ -15,6 +15,9 @@ It has four links.
 
 <!-- screenshot: mocap portal with its four tiles, page https://mocap.signcollect.nl -->
 
+![Mocap portal with its four tiles](../assets/screenshots/mocap-portal.png)
+
+
 ## The screen
 
 | Link | Goes to | What it is for |
@@ -44,6 +47,9 @@ recordings. It lists the recordings by date.
 - **Statistieken:** activity per user and over time.
 
 <!-- screenshot: File Manager recording list with filters, page /animMIDI/public/index.php -->
+
+![File Manager recording list with filters](../assets/screenshots/mocap-file-manager.png)
+
 
 ### Clean up a recording
 

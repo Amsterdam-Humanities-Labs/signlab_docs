@@ -26,6 +26,9 @@ Do this the day after the session. Processing takes a few hours.
 
 <!-- screenshot: studio archive date status line with both confirmations, page /studioIndex/ -->
 
+![Studio archive date status line with both confirmations](../assets/screenshots/studio-archive.png)
+
+
 ## 2. Look at the takes
 
 1. Set **Video Display** to **5 Videos (All)**.

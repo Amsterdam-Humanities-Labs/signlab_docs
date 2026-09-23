@@ -19,6 +19,9 @@ set for your account.
 
 <!-- screenshot: gloss table with filter bar and header, page /menu_beta/ -->
 
+![Gloss table with filter bar and header](../assets/screenshots/gloss-list.png)
+
+
 ## The screen
 
 ### Header

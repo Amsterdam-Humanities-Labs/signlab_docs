@@ -27,6 +27,9 @@ Go to <https://signcollect.nl/annotation-tool/>. It opens the editor.
 
 <!-- screenshot: annotation tool with a video loaded and two tiers, page /annotation-tool/v3/ -->
 
+![Annotation tool with a video loaded and two tiers](../assets/screenshots/annotation-tool.png)
+
+
 ## The screen
 
 - **Video** at the top. The browser decodes it frame by frame, so you can step

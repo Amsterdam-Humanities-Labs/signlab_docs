@@ -24,6 +24,9 @@ cameras are connected to.
 
 <!-- screenshot: start window "Wat wil je opnemen?" with the type buttons, page /studio_beta/opnameView.html -->
 
+![Start window "Wat wil je opnemen?" with the type buttons](../assets/screenshots/camera-control.png)
+
+
 ## The screen
 
 ### Start window

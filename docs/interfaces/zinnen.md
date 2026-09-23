@@ -18,6 +18,9 @@ EAF file.
 
 <!-- screenshot: Zinnen interface with filters and first sentence rows, page /zin/zinnen.html -->
 
+![Zinnen interface with filters and first sentence rows](../assets/screenshots/sentences-interface.png)
+
+
 ## The screen
 
 ### Top buttons

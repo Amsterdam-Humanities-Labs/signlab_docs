@@ -34,15 +34,51 @@ nav:
   - Home: index.md
   - Getting started:
       - getting-started/index.md
-      - Logging in: getting-started/login.md
-      - Where to find what: getting-started/where-to-find-what.md
+      - "Logging in": getting-started/login.md
+      - "Where to find what": getting-started/where-to-find-what.md
   - Interfaces:
       - interfaces/index.md
+      - "Main menu and gloss management": interfaces/main-menu.md
+      - "Zinnen interface": interfaces/zinnen.md
+      - "Annotation editors (subBeta8 and 3DAnn3)": interfaces/annotation-editors.md
+      - "Annotation tool": interfaces/annotation-tool.md
+      - "Camera Control": interfaces/camera-control.md
+      - "Studio archive": interfaces/studio-archive.md
+      - "Crop fix manager": interfaces/crop-fix-manager.md
+      - "Signbank connector": interfaces/signbank-connector.md
+      - "Patient-info texts": interfaces/patient-info.md
+      - "Mocap portal": interfaces/mocap-portal.md
+      - "Motion Capture Studio": interfaces/mocap-studio.md
+      - "Vicon dashboard": interfaces/vicon-dashboard.md
+      - "blendBaking": interfaces/blendbaking.md
+      - "Body-animation viewer": interfaces/body-animation-viewer.md
+      - "Client monitor": interfaces/client-monitor.md
   - How-to guides:
       - guides/index.md
+      - "Run a recording session": guides/recording-session.md
+      - "Annotate a sentence and save the EAF": guides/annotate-sentence.md
+      - "Add or edit a gloss and sync with Signbank": guides/gloss-signbank.md
+      - "Fix a badly cropped take": guides/fix-crop.md
+      - "Check that a day's recordings are complete": guides/check-day-complete.md
+      - "Get mocap from Vicon to a baked animation": guides/mocap-to-animation.md
+      - "Review clusters": guides/review-clusters.md
+      - "Export and download annotations": guides/export-annotations.md
   - Troubleshooting:
       - troubleshooting/index.md
+      - "Login, accounts and the menu": troubleshooting/login.md
+      - "Glosses and Signbank sync": troubleshooting/glosses.md
+      - "Sentence annotation and EAF files": troubleshooting/annotation.md
+      - "Annotation editors (subBeta8 and 3DAnn3)": troubleshooting/editors.md
+      - "Annotation tool (v3, webcam and clusters)": troubleshooting/annotation-tool.md
+      - "Recording sessions and camera control": troubleshooting/recording.md
+      - "Video processing and studio archive": troubleshooting/video-processing.md
+      - "Motion capture": troubleshooting/mocap.md
+      - "Blackmagic cameras and research-drive copies": troubleshooting/blackmagic.md
+      - "Uploads, tokens, the API and patient-info": troubleshooting/uploads.md
+      - "Monitoring and alerts": troubleshooting/monitoring.md
+      - "Server and system": troubleshooting/system.md
+      - "Browser problems": troubleshooting/browser.md
   - For administrators:
       - admin/index.md
-      - Installing a demo host: admin/install.md
+      - "Installing a demo host": admin/install.md
   - Glossary: glossary.md
