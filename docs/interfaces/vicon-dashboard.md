@@ -66,8 +66,8 @@ The last 100 recordings, or those of the chosen date. One row per recording:
 Files that stay on the Vicon PC show as present but have no download link.
 
 !!! note "The Tekst link"
-    The **Tekst** link currently leads to a page that does not exist.
-    <!-- TODO: confirm; README says /sCApp/3DViewer_viconDashboard.html is in no repo -->
+    The **Tekst** link opens the 3D viewer: the capture played on the same
+    avatar the 3DAnn3 editor uses.
 
 ## Common tasks
 

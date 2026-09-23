@@ -61,7 +61,13 @@ You return to the login page.
 
 SignCollect has no "forgot password" link. Ask an administrator to set a new
 password for you. They do this on the **Gebruikers Beheren** page.
-<!-- TODO: confirm whether users can change their own password; only users.html (admin) sets one -->
+
+## Changing your password
+
+1. Open the menu (**☰**).
+2. Under **Account**, choose **Change password**.
+3. Type your current password, then the new one twice (at least 8 characters).
+4. Click **Save**. You stay logged in.
 
 ## Related
 

@@ -52,8 +52,10 @@ straight away:
 
 ## 5. Wait for the 3D conversion
 
-<!-- TODO: confirm whether the GLB is built from the cleaned FBX (step 4) or from the raw CC export; viconSync cc_pipeline converts CC exports hourly -->
-The server converts the character exports to GLB files every hour. The **GLB**
+The GLB is made from the **cleaned FBX** of step 4: a recording must first be
+post-processed in the Motion Capture File Manager with the Unreal Editor. The
+server then converts it to a GLB file every hour. For questions about the avatar
+pipeline, ask Jari Andersen. The **GLB**
 column of the Vicon dashboard shows when a recording has one.
 
 Until then, **Bewerk Motion Capture** in the Zinnen interface says *This

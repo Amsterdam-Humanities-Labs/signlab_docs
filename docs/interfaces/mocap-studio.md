@@ -32,10 +32,9 @@ copy of the day's recordings to the server.
 | Glosses | Single glosses, by video gloss, image gloss or topic |
 | HH | Health texts |
 | Sentences | Sentences (*zinnen*) |
-| BAK | Items from the BAK label lists |
+| BAK | Items from the *Basiswoordenlijst Amsterdamse Kinderen* (BAK), a basic word list for children |
 | Capture List | The list of what still needs recording, per theme. You can pick an item, record a whole theme, or mark an item as captured |
 
-<!-- TODO: confirm what BAK stands for -->
 
 ### Recording screen
 

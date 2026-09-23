@@ -99,7 +99,6 @@ Problems during a studio session with the five Sony FX30 cameras: the Camera Con
 **Try this:**
 
 1. Swap the battery or the card.
-2. After a battery swap, redo the Charuco calibration. The warning says so because the camera may have moved.
 
 **Still stuck?** Not needed.
 
