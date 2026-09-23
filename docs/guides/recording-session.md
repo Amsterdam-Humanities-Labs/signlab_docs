@@ -21,9 +21,6 @@ and uploads the videos by itself after the session.
    or **Zin**.
 7. In **Welke gebruiker ben je?**, choose the signer's account.
 8. In **Welke thema wil je opnemen?**, choose the theme or list.
-9. Click **Calibratie Charuco Board** and do the calibration with the Charuco
-   board: press **B** to start and stop capturing.
-   <!-- TODO: confirm the calibration steps with an operator -->
 10. Click **Beginnen**.
 11. Check the top bar: all five cameras must be online. If one is missing,
     open **Instellingen** > **Camera Tabel (Probleemoplossing)**.
@@ -49,7 +46,6 @@ Keep an eye on the messages:
 - *Niet alle cameras online!* A camera dropped out. Fix it before you record.
   Click **Toch opnemen** only if you accept losing that angle for this take.
 - *Let op, weinig geheugen of lage batterij!* Change the battery or card.
-  After a battery change, do the Charuco calibration again.
 - *Scan of bestandslijst bezig, even wachten...* The cameras are being
   scanned. Wait until it passes.
 

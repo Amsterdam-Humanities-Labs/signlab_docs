@@ -18,8 +18,7 @@ Both editors save your work on the server as an EAF file, one per video.
 
 - **Who uses them:** annotators.
 - **Address:** opened from the Zinnen interface; you do not type the address.
-- **Login:** yes for subBeta8.
-<!-- TODO: confirm; the repo README says 3DAnn3 has no login check of its own -->
+- **Login:** yes, for both editors.
 
 ## subBeta8
 

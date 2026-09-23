@@ -37,8 +37,7 @@ cameras are connected to.
    type what you will record).
 2. **Welke gebruiker ben je?** Choose the signer's account.
 3. **Welke thema wil je opnemen?** Choose the theme or list.
-4. Click **Beginnen** (start). **Calibratie Charuco Board** starts a camera
-   calibration first.
+4. Click **Beginnen** (start).
 
 ### Top bar
 
@@ -71,7 +70,7 @@ there is one. Below it:
 
 | Section | Buttons |
 |---|---|
-| Camera | **Charuco Board Calibratie**, **Camera Tabel (Probleemoplossing)** (camera table, for troubleshooting), **Live Streams Aan/Uit** |
+| Camera | **Camera Tabel (Probleemoplossing)** (camera table, for troubleshooting), **Live Streams Aan/Uit** |
 | Opnames | **Vandaag Opgenomen (Review)**, **Starten Formatten** (format cards), **Start Downloaden Video's**, **Start Auto-Press B (20s)** |
 | Timer | **Timer inschakelen** (turn the countdown on) |
 

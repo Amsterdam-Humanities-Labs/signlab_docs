@@ -87,7 +87,6 @@ Many SignCollect pages do their work in your browser: playing and stepping throu
 
 ### The 3D avatar does not appear {#br-webgl}
 
-<!-- TODO: confirm — hardware-acceleration step is general browser advice, not from the SignCollect code. -->
 
 **Type:** user error · **Who can fix:** you
 
@@ -103,7 +102,6 @@ Many SignCollect pages do their work in your browser: playing and stepping throu
 
 ### The page is blank or buttons do nothing {#br-blank}
 
-<!-- TODO: confirm — general browser advice, not traced to a specific SignCollect error. -->
 
 **Type:** both · **Who can fix:** you / administrator
 

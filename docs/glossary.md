@@ -13,8 +13,6 @@ interface uses a Dutch word, it is given in brackets.
 
 **Baked take**: A motion-capture take that has been converted to a GLB animation file. [blendBaking](interfaces/blendbaking.md) lists them.
 
-**Charuco board**: A printed calibration pattern. [Camera Control](interfaces/camera-control.md) uses it to calibrate the five cameras at the start of a session and after a battery change.
-
 **Client** (monitoring): A machine, script or background job that reports to the [client monitor](interfaces/client-monitor.md) with heartbeats.
 
 **Cluster**: A group of automatically found sign segments that look alike. Each cluster should be one sign. See [Review clusters](guides/review-clusters.md).

@@ -33,7 +33,9 @@ After a session, the studio Mac (DRS) copies the clips to the research drive, re
 
 **Still stuck?** Send the take ID and the recording date.
 
-<!-- TODO: confirm — the pipeline manual has no documented fix for pose_detection_failed yet. -->
+!!! tip "Usually a trial video"
+    "No person detected" almost always means the clip was a trial recording,
+    made to test the capture. Those clips can be ignored.
 
 ### Crop Fix Manager: "Crop fix already requested for this file" {#vp-crop-duplicate}
 
