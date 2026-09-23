@@ -18,6 +18,9 @@ The archive only reads. You cannot change or delete takes here.
 
 <!-- screenshot: Studio Index with date filter, status line and take cards, page /studioIndex/ -->
 
+![Studio Index with date filter, status line and take cards](../assets/screenshots/studio-archive.png)
+
+
 ## The screen
 
 ### Filters

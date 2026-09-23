@@ -20,6 +20,9 @@ copy of the day's recordings to the server.
 
 <!-- screenshot: mode selection with Glosses, HH, Sentences, BAK and Capture List, page /mocapStudio/capture.html -->
 
+![Mode selection with Glosses, HH, Sentences, BAK and Capture List](../assets/screenshots/mocap-studio.png)
+
+
 ## The screen
 
 ### Select capture mode

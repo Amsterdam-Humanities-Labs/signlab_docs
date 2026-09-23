@@ -20,6 +20,9 @@ the annotation editors and the annotation tool reads it.
 
 <!-- screenshot: Signbank koppeling page with the four sections, page /menu_beta/signbank.php -->
 
+![Signbank koppeling page with the four sections](../assets/screenshots/signbank-link.png)
+
+
 ## The screen
 
 ### Verbinding (connection)

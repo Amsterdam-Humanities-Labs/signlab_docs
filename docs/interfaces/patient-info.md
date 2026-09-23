@@ -21,6 +21,9 @@ texts have been signed and annotated.
 
 <!-- screenshot: HH dashboard, page /hh/index.html -->
 
+![HH dashboard](../assets/screenshots/patient-info.png)
+
+
 ## The screen
 
 | Page | Address | What it shows |
