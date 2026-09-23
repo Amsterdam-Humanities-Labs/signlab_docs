@@ -1,0 +1,48 @@
+site_name: SignCollect documentation
+site_description: How to use SignCollect, the NGT sign-language collection and annotation system of the UvA SignLab.
+site_url: https://amsterdam-humanities-labs.github.io/signlab_docs/
+repo_url: https://github.com/Amsterdam-Humanities-Labs/signlab_docs
+edit_uri: edit/main/docs/
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle: {icon: material/weather-night, name: Dark mode}
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle: {icon: material/weather-sunny, name: Light mode}
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed: {alternate_style: true}
+  - attr_list
+  - tables
+  - toc: {permalink: true}
+plugins:
+  - search
+nav:
+  - Home: index.md
+  - Getting started:
+      - getting-started/index.md
+      - Logging in: getting-started/login.md
+      - Where to find what: getting-started/where-to-find-what.md
+  - Interfaces:
+      - interfaces/index.md
+  - How-to guides:
+      - guides/index.md
+  - Troubleshooting:
+      - troubleshooting/index.md
+  - For administrators:
+      - admin/index.md
+      - Installing a demo host: admin/install.md
+  - Glossary: glossary.md
