@@ -108,3 +108,15 @@ So a demo host can never write to the production database or media.
 
 - [For administrators](index.md)
 - [Troubleshooting](../troubleshooting/index.md)
+
+## A public name instead of a tailnet one
+
+For a server with a public name (for example `test.signcollect.nl`):
+
+1. Point the name's DNS A record at the server.
+2. Keep port 80 open.
+3. Run the installer with your e-mail address. It gets a free Let's Encrypt certificate that renews itself:
+
+```bash
+LETSENCRYPT_EMAIL=you@uva.nl ~/signcollect-deploy/interface_deploy/scripts/install.sh --local --domain test.signcollect.nl
+```

@@ -18,6 +18,7 @@ a [login](../getting-started/login.md), except where the page says otherwise.
 | [Mocap portal](mocap-portal.md) | Start page with links to the motion-capture tools | mocap team | `https://mocap.signcollect.nl` |
 | [Motion Capture Studio](mocap-studio.md) | The page used during a Vicon recording session | recording operators | `/mocapStudio/capture.html` |
 | [Vicon dashboard](vicon-dashboard.md) | Which Vicon recordings arrived and whether their files are complete | mocap team | `/viconDashboard/` |
+| [Mocap overview and file API](mocap-overview.md) | The whole mocap dataset at a glance, and an API to find and download animation files | Avatar team | `/mocapOverview/` |
 | [blendBaking](blendbaking.md) | Gloss SRTs and gloss timings for the baked mocap sentences | researchers | `/blendBaking/` |
 | [Body-animation viewer](body-animation-viewer.md) | Plays 3D body animations reconstructed from studio video (experimental) | researchers | `/s3b_glb/` |
 | [Client monitor](client-monitor.md) | Which lab machines and background jobs are alive | administrators | `/client_monitor_dashboard/` |

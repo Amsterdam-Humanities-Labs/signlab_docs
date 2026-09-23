@@ -50,6 +50,7 @@ nav:
       - "Mocap portal": interfaces/mocap-portal.md
       - "Motion Capture Studio": interfaces/mocap-studio.md
       - "Vicon dashboard": interfaces/vicon-dashboard.md
+      - "Mocap overview and file API": interfaces/mocap-overview.md
       - "blendBaking": interfaces/blendbaking.md
       - "Body-animation viewer": interfaces/body-animation-viewer.md
       - "Client monitor": interfaces/client-monitor.md

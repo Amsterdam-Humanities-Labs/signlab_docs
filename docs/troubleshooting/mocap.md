@@ -280,3 +280,30 @@ Problems with Vicon captures: syncing files from the Vicon PC, viconDashboard, t
 2. Report takes that stay locked.
 
 **Still stuck?** Send the take name and message. See also [Uploads and tokens](uploads.md).
+
+### The mocap overview says "Inventory not built yet" {#mocap-overview-not-built}
+
+**Type:** system error · **Who can fix:** administrator
+
+**Likely cause:** the inventory has not been built on this server yet, or its last build failed.
+
+**Try this:**
+
+1. Wait an hour and reload; the inventory is rebuilt on the server.
+2. If it stays, ask an administrator to run the inventory build (about 30 minutes).
+
+**Still stuck?** Send the page address and the time.
+
+### The mocap file API answers 401 {#mocap-overview-401}
+
+**Type:** user error · **Who can fix:** you / administrator
+
+**Likely cause:** the request has no API key, or the key is wrong or withdrawn.
+
+**Try this:**
+
+1. Send the key in the `X-API-Key` header when you script against the API.
+2. In the browser, log in on `/mocapOverview/` first; the playground on `/mocapOverview/api/` then works without a key.
+3. Ask an administrator for a new key if yours stopped working.
+
+**Still stuck?** Send the request you made (without the key) and the time.
