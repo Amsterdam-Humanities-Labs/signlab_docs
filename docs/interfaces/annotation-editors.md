@@ -1,7 +1,9 @@
 # Annotation editors (subBeta8 and 3DAnn3)
 
-Two editors open from the [Zinnen interface](zinnen.md). Both show a video or
-animation above a timeline with three tiers:
+Two editors open from the [Zinnen interface](zinnen.md). You use them to add
+the Dutch translation, the glosses and the sign-by-sign description to a
+sentence, each timed to the signing. Both show a video or animation above a
+timeline with three tiers:
 
 | Tier | What goes in it |
 |---|---|
@@ -14,7 +16,7 @@ Both editors save your work on the server as an EAF file, one per video.
 | Editor | What it is for | Opened with |
 |---|---|---|
 | subBeta8 | Annotate a studio video of a sentence, with AI help for segmenting and glossing | **Bewerk EAF (AI)** |
-| 3DAnn3 | Time the annotation on the motion-capture take, shown as a 3D avatar | **Bewerk Motion Capture** |
+| 3DAnn3 | Time the annotation on the motion-capture take, shown as a 3D avatar | **Bewerk Motion Capture** (only once the three annotation statuses are *Klaar*) |
 
 - **Who uses them:** annotators.
 - **Address:** opened from the Zinnen interface; you do not type the address.
@@ -33,7 +35,8 @@ Both editors save your work on the server as an EAF file, one per video.
 - **Toolbar:**
     - **+ Add Subtitle:** add a short, empty annotation at the start of the
       first tier (*Nederlands*). Drag it into place and type its text.
-    - **Regex:** help for the search patterns.
+    - **Regex:** help for the patterns you can type in the gloss search
+      field, such as `^PO` (starts with PO).
     - **Download Subtitles:** save each tier as a WebVTT subtitle file
       (`.vtt`).
     - **Autosave Enabled:** shows the save state (see below).
@@ -41,9 +44,11 @@ Both editors save your work on the server as an EAF file, one per video.
       annotation replays it. This button turns that off.
     - **Segment**, **Spot**, **Segment + Spot:** the AI helpers (see below).
     - **⌨ Keyboard Controls:** the list of shortcuts.
-- **Status drop-downs** for *Video*, *Nederlands*, *Glossen* and *GvG*. These
-  are the same statuses as in the Zinnen interface.
-- **Go back to Zinnen:** saves, then returns to the list.
+- **Status drop-downs** for *Video*, *Nederlands*, *Glossen* and *GvG*. They
+  change the same statuses as the Zinnen interface. (*Video* offers *Leeg*,
+  *Niet Klaar*, *Klaar* and *Signbank*.)
+- **Go back to Zinnen:** saves, then returns to the list with your filters
+  still set.
 
 ### Saving
 
@@ -54,15 +59,27 @@ have to press anything.
 - **Save Failed!** or **Save Error!** means it is not. You also get an alert
   such as *Upload failed due to a network error. Your changes have NOT been
   saved.*
-- **Go back to Zinnen** shows *Opslaan...* and then *Opgeslagen!*. If it shows
-  *Opslaan mislukt!*, you are asked whether to leave anyway. Choose to stay,
+- **Go back to Zinnen** saves first. Wait until *Saving successful* appears.
+  If the save fails, you are asked whether to leave anyway. Choose to stay,
   and see [Troubleshooting](../troubleshooting/index.md).
+
+### Add an annotation by hand
+
+1. Move the mouse over an empty spot on the tier you want. A **+** appears.
+2. Click where the sign starts, then click where it ends.
+   A new, empty annotation appears between the two points.
+3. Double-click it (or select it and press Enter) and type the text. Press
+   Esc when done.
+
+The editor saves about one second later. **+ Add Subtitle** does the same, but
+always puts the new annotation at the start of the *Nederlands* tier; drag it
+into place by its handle.
 
 ### AI helpers
 
 | Button | What it does |
 |---|---|
-| Segment | Splits the video into signs and fills the *Signbank ID glossen* tier with empty segments |
+| Segment | Splits the video into signs and fills the *Signbank ID glossen* tier with segments |
 | Spot | Suggests the ten most likely glosses for each segment |
 | Segment + Spot | Both, one after the other |
 
@@ -97,15 +114,19 @@ it to set the timing of the annotation on the mocap take.
 
 - **3D view** with the avatar. **Hand L**, **Hand R** and **Reset view** move
   the camera.
-- The same playback, speed and zoom controls as subBeta8.
+- The same playback, speed and zoom controls as subBeta8, and **Go back to
+  Zinnen**.
 - **Shift all:** **-1s**, **-0.1s**, **+0.1s**, **+1s** move every annotation
   at once.
-- **Status drop-downs** for the three MCP statuses: *Status Postprocessing*,
-  *Status Tijd Annotatie Gloss* and *Status Tijd annotatie Gebaar voor
-  Gebaar/Nederlands*.
+- **Status drop-downs** for the three MCP statuses: *MCP - Status
+  Postprocessing*, *MCP - Status Tijd Annotatie Gloss* and *MCP - Status Tijd
+  annotatie Gebaar voor Gebaar/Nederlands*.
+- **Load GLB:** open a `.glb` animation file from your computer instead of the
+  take.
 - **Auto-Segment** re-times the *Signbank ID glossen* tier to the take.
-  **Revert Autoseg** undoes it. **View 2D Video** opens the studio video in a
-  new tab.
+  **Auto-Segment 2D** does the same from the 2D studio video. **Revert
+  Autoseg** undoes either. **View 2D Video** opens the studio video in a new
+  tab.
 - **Sync van mp4:** copy one tier (**Nederlands**, **Gebaar-voor-Gebaar** or
   **Signbank ID glossen**) from the studio-video annotation into this take.
   Then click **Save Sync**, or **Revert Sync** to undo.
@@ -121,8 +142,13 @@ The Zinnen interface shows one of these alerts instead:
 - *No motion capture file found for this video.* There is no mocap take for
   this sentence.
 - *This capture has not been through the FBX-to-GLB conversion yet …* The take
-  exists but has no 3D version yet. The conversion runs every hour on the
-  server. Try again later, or ask an administrator.
+  exists but has no 3D version yet. The conversion runs on the server on a
+  schedule. Try again later, or ask an administrator.
+
+If the button shows **Motion Capture blocked**, set *Status Nederlands*,
+*Status Glossen* and *Status Gebaar voor Gebaar* to *Klaar* first. If there is
+no motion-capture button at all, the sentence has no mocap take or its
+post-processing is not *Klaar* yet.
 
 ## Common tasks
 

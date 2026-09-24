@@ -11,7 +11,7 @@ complete, and download links for them.
 ## Open it
 
 - Go to <https://signcollect.nl/viconDashboard/>, or
-- on the [mocap portal](mocap-portal.md), click **Vicon Dashboard**.
+- on the [mocap portal](mocap-portal.md), click **Vicon Dashboard Sync**.
 
 <!-- screenshot: Vicon Capture Dashboard with date overview and live feed, page /viconDashboard/ -->
 
@@ -28,7 +28,7 @@ shows when it last did.
 ### Mocap Capture Status
 
 A pie chart of the mocap state of the sentences, and the number of sentences
-marked *Klaar*.
+marked *Klaar* (**Sentences "Klaar"**).
 
 ### Date Overview
 
@@ -37,7 +37,7 @@ The last 30 recording dates. Click a date to see only its recordings.
 
 ### Live Feed
 
-The last 100 recordings, or those of the chosen date. One row per recording:
+**Last 100 captures**, or those of the chosen date. One row per recording:
 
 | Column | What it is |
 |---|---|
@@ -56,11 +56,13 @@ The last 100 recordings, or those of the chosen date. One row per recording:
 
 ### Row colours
 
-| Colour | Meaning |
-|---|---|
-| Green | Complete: *obs*, *shogun_live*, *unreal*, *livelink* and *metadata* are all there |
-| Yellow | All five are there, but files are still being copied |
-| Red | Incomplete: at least one of the five is missing |
+The **Legend** on the page explains them too.
+
+| Colour | Legend text | Meaning |
+|---|---|---|
+| Green | Complete (all 5 required) | *obs*, *shogun_live*, *unreal*, *livelink* and *metadata* are all there |
+| Yellow | Uploading (has growing files) | All five are there, but files are still being copied |
+| Red | Incomplete (missing subdirs) | At least one of the five is missing |
 
 *shogun_post*, *GLB*, *CC* and *Vicon* are shown but do not change the colour.
 Files that stay on the Vicon PC show as present but have no download link.
@@ -73,7 +75,7 @@ Files that stay on the Vicon PC show as present but have no download link.
 
 ### Check a session arrived
 
-1. Wait for the nightly copy, or use **Manual Sync** on the
+1. Wait for the nightly copy (about 02:30), or use **Manual Sync** on the
    [Motion Capture Studio](mocap-studio.md) page.
 2. Click the session date in **Date Overview**.
 3. Check that every row is green. Yellow rows are still copying: wait and
@@ -83,7 +85,7 @@ Files that stay on the Vicon PC show as present but have no download link.
 
 ### Download a file
 
-1. Click the row. Its list of files opens.
+1. Click the row. Its list of files opens under it.
 2. Click the file. Only files that were copied to the server have a link.
 
 ## Related

@@ -21,8 +21,10 @@ A *baked* take is one that has been converted to a GLB animation file.
 1. Open the [Motion Capture Studio](../interfaces/mocap-studio.md):
    <https://signcollect.nl/mocapStudio/capture.html>.
 2. Choose the mode, for example **Sentences**.
-3. For each item: press **A** to start, **A** to stop, then **B** to save and
-   go to the next item. Press **C** to skip.
+3. Set **Duration** to how long a capture should run (3 to 15 seconds).
+4. For each item: press **A** to start. The capture stops by itself after the
+   duration, or press **A** again to stop earlier. Then press **B** to save
+   and go to the next item, or **C** to skip.
 
 ## 2. Copy the recordings to the server
 
@@ -37,14 +39,16 @@ straight away:
 1. Open the [Vicon dashboard](../interfaces/vicon-dashboard.md):
    <https://signcollect.nl/viconDashboard/>.
 2. Click the session date in **Date Overview**.
-3. Every row should be green. Yellow means still copying: wait. Red means a
+3. Check that every row is green. Yellow means still copying: wait. Red means a
    part is missing: note the recording name and the missing column, and tell
    an administrator.
 
 ## 4. Clean up the animation
 
-1. Open the File Manager from the [mocap portal](../interfaces/mocap-portal.md).
-2. Filter on recordings that are not processed yet.
+1. On the [mocap portal](../interfaces/mocap-portal.md), click **Motion
+   Capture File Manager**.
+2. Set **Processing Status** to **Unprocessed Only** and click **Apply
+   Filter**.
 3. Download the FBX, or the ZIP with the reference video.
 4. Clean the animation up in Unreal.
 5. Upload the result under **Upload Processed Files**.
@@ -83,10 +87,13 @@ capture has not been through the FBX-to-GLB conversion yet*.
 
 - [blendBaking](../interfaces/blendbaking.md) lists every baked take with a
   gloss SRT. Download the SRTs, or query gloss timings through its API.
-- The **Avatar Player** on the [mocap portal](../interfaces/mocap-portal.md)
-  plays the animations on an avatar.
-- The File Manager downloads the EAF/SRT files of up to 100 finished
-  recordings at once.
+- The **signCollect Avatar Player** on the
+  [mocap portal](../interfaces/mocap-portal.md) plays the animations on an
+  avatar.
+- In the File Manager, **Download Selected (EAF)** downloads the EAF/SRT files
+  of up to 100 finished recordings at once.
+- The [mocap overview and file API](../interfaces/mocap-overview.md) finds and
+  downloads animation files in bulk.
 
 ## Related
 

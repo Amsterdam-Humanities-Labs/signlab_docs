@@ -14,7 +14,8 @@ the dashboard shows it. It also has a live feed of studio recordings.
 ## Open it
 
 1. Go to <https://signcollect.nl/client_monitor_dashboard/>.
-2. Enter your **Username** and **Password** and log in.
+2. Under **Dashboard Login**, enter your **Username** and **Password**.
+3. Click **Log in**.
 
 This login is separate from the SignCollect login. It lasts one year on that
 browser.
@@ -30,9 +31,10 @@ browser.
 ### Monitored Clients
 
 - Filter buttons: **All**, **Online**, **Warning**, **Offline**.
-- View buttons: **Grid** (cards, grouped by machine) or **Table**. The page
-  remembers your choice.
-- **Refresh**. The page also refreshes by itself every 30 seconds.
+- View buttons: **Grid** (cards, grouped by machine IP address) or **Table**.
+  The page remembers your choice.
+- **Refresh**. The page also refreshes by itself every 30 seconds
+  (*Auto-refresh in 30 s*).
 
 In the table view each client has: **Status**, **Client Name**,
 **Description**, **Last Seen**, **Heartbeat Interval**, **IP Address** and
@@ -53,6 +55,7 @@ These are the default limits. A client can have its own.
 
 ### Studio recordings
 
+- **LIVE** in the header: the number of takes *captured today*.
 - **Recent Camera Records:** the newest takes logged by
   [Camera Control](camera-control.md), with today's count and the latest take.
 - **Transcription Stats:** takes per day.
@@ -62,16 +65,18 @@ These are the default limits. A client can have its own.
 ### Check that the studio pipeline is running
 
 1. Click **Offline**.
-2. Look for the studio Mac (DRS) jobs, such as the file mover, batch queue,
-   crop processor, converter and file lister.
+2. Look for the studio Mac (DRS) jobs: **DRS File Mover**, **DRS Batch
+   Queue**, **DRS Crop Processor**, **DRS File Converter**, **DRS File
+   Lister**, **DRS Network Manager**, **DRS QR Scanner** and **DRS Crop Fix**.
 3. If one is offline, tell an administrator. Recordings from that day will not
    be processed until it runs again.
 
 ### Remove a machine that no longer exists
 
 1. Switch to **Table**.
-2. Click delete in the **Actions** column of that client.
-3. Confirm. Its metrics are deleted too.
+2. Click the delete button in the **Actions** column of that client.
+3. Click **Delete** under *Are you sure you want to delete this client?*. Its
+   metrics are deleted too.
 
 ## Related
 

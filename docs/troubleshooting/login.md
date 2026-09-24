@@ -3,7 +3,7 @@
 Problems with logging in, staying logged in, roles, datasets and the menu of `signcollect.nl`.
 
 !!! note "No self-service password reset"
-    SignCollect has no "forgot password" link. An administrator sets a new password for you.
+    SignCollect has no "forgot password" link. An administrator sets a new password for you. If you know your password, change it yourself: menu (☰) > **Wachtwoord wijzigen** (Change password) on the gloss management page.
 
 ### "Ongeldige gebruikersnaam of wachtwoord." {#login-wrong-password}
 
@@ -24,11 +24,11 @@ Problems with logging in, staying logged in, roles, datasets and the menu of `si
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** the TYD API admin page changes how your password is stored the first time you log in there. After that, the normal SignCollect login no longer accepts it. This is a known bug.
+**Likely cause:** the TYD API admin page (`/zin/api/admin/`) changes how your password is stored the first time you log in there. After that, the normal SignCollect login no longer accepts it. This is a known bug.
 
 **Try this:**
 
-1. Ask an administrator to set your password again in the Users page.
+1. Ask an administrator to set your password again in **Gebruikers Beheren** (the Users page).
 2. Until the bug is fixed, avoid logging in on the TYD API admin page with the same account.
 
 **Still stuck?** Send your username and the time you last used the TYD API admin page.
@@ -41,7 +41,7 @@ Problems with logging in, staying logged in, roles, datasets and the menu of `si
 
 **Try this:**
 
-1. Ask an administrator to unblock your account in the Users page.
+1. Ask an administrator to unblock your account in **Gebruikers Beheren**.
 
 **Still stuck?** Send your username and when you last logged in.
 
@@ -54,7 +54,8 @@ Problems with logging in, staying logged in, roles, datasets and the menu of `si
 **Try this:**
 
 1. Ask an administrator for a new password.
-2. The administrator uses **Edit** in the Users page and fills in a new password.
+2. The administrator uses **Edit** in **Gebruikers Beheren** and fills in a new password.
+3. Log in, then change it to your own password with **Wachtwoord wijzigen**.
 
 **Still stuck?** Send your username.
 
@@ -94,7 +95,7 @@ Problems with logging in, staying logged in, roles, datasets and the menu of `si
 
 **Try this:**
 
-1. Use the **Logout** link in the menu. It clears the login on every SignCollect address.
+1. Click **Uitloggen** (Log out) in the menu, or the exit icon at the top right. It clears the login on every SignCollect address.
 2. If you still appear logged in, clear the cookies for `signcollect.nl`.
 3. Always log out on shared computers.
 
@@ -104,7 +105,7 @@ Problems with logging in, staying logged in, roles, datasets and the menu of `si
 
 **Type:** user error · **Who can fix:** administrator
 
-**Likely cause:** the page is for administrators only, for example the Users page, the activity log and the Signbank admin page. Your role is checked on the server each time.
+**Likely cause:** the page is for administrators only, for example **Gebruikers Beheren** ("Unauthorized: admin role required") and **Signbank koppeling** ("Geen toegang"). Your role is checked on the server each time.
 
 **Try this:**
 
@@ -134,7 +135,8 @@ Problems with logging in, staying logged in, roles, datasets and the menu of `si
 
 **Try this:**
 
-1. Ask an administrator to change your language in the Users page.
+1. Ask an administrator to change **Taal** (language) for your account in **Gebruikers Beheren**.
+2. Log in again.
 
 **Still stuck?** Send your username and the language you want.
 
@@ -156,7 +158,7 @@ Problems with logging in, staying logged in, roles, datasets and the menu of `si
 
 **Type:** user error · **Who can fix:** administrator
 
-**Likely cause:** the form names the problem: "Username already exists", "Username and password are required", "At least one dataset must be allowed", or the default dataset is not one of the allowed ones.
+**Likely cause:** the form names the problem: "Username already exists", "Username and password are required", "At least one dataset must be allowed", or "Default dataset must be one of the allowed datasets". The same checks apply to the views (Signio, Signbank): "At least one context must be allowed".
 
 **Try this:**
 

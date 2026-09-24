@@ -2,8 +2,8 @@
 
 This section is for the people who look after SignCollect: accounts, the
 Signbank link, the servers and the studio machines. Most of your work happens
-in a few admin pages. The technical documentation lives in the private
-repositories on GitHub.
+in a few admin pages. The technical documentation is in the repositories on
+GitHub.
 
 ## What administrators do
 
@@ -17,21 +17,31 @@ repositories on GitHub.
 
 ## Manage users
 
-1. Open the [gloss management page](../interfaces/main-menu.md), then the menu,
-   then **Gebruikers Beheren** under **Admin**.
-2. Add a user with a user name (**Gebruikersnaam**) and password
-   (**Wachtwoord**).
-3. Set:
+Only users with the role *Admin* see this page.
+
+1. Open the [gloss management page](../interfaces/main-menu.md), open the
+   menu and click **Gebruikers Beheren** under **Admin**.
+2. To add a user, click **Gebruiker toevoegen**.
+3. Fill in the user name (**Gebruikersnaam**) and password (**Wachtwoord**).
+4. Set the access fields:
     - **Taal:** Nederlands or English. The gloss management page uses it.
     - **Rol:** *User* or *Admin*. Only admins see the Admin menu and the
       Signbank connector.
     - **Datasets:** which datasets the user may open, and the default one.
+      Tick at least one.
     - **Signio / Signbank:** which gloss views the user may use, and the
-      default one.
-4. To reset a password, edit the user and type the new one in **Nieuw
-   wachtwoord**. Leave it empty to keep the old one.
-5. To unblock a user, use the block toggle in the row. *Gebruiker
-   gedeblokkeerd* confirms it.
+      default one. Tick at least one.
+5. Click **Toevoegen**. The user appears in the list.
+
+To change a user later:
+
+1. Click **Bewerken** in the user's row.
+2. To reset the password, type the new one in **Nieuw wachtwoord**. Leave it
+   empty to keep the old one.
+3. Click **Opslaan**.
+
+To unblock a user, click **Deblokkeren** in the row. *Gebruiker
+gedeblokkeerd* confirms it. **Blokkeren** blocks a user.
 
 !!! note "Automatic blocking"
     An account that has not been used for more than 60 days is blocked at its
@@ -39,10 +49,9 @@ repositories on GitHub.
 
 ## Technical documentation
 
-All repositories are in the
+All repositories are public, in the
 [Amsterdam-Humanities-Labs](https://github.com/orgs/Amsterdam-Humanities-Labs/repositories?q=signlab_)
-organisation on GitHub, with the prefix `signlab_`. They are private: you need
-to be a member of the organisation.
+organisation on GitHub. Their names start with `signlab_`.
 
 Start with the index repository,
 [signlab_signcollect-stack](https://github.com/Amsterdam-Humanities-Labs/signlab_signcollect-stack).
@@ -59,7 +68,9 @@ Its `docs/` folder has:
 
 Each component repository has a README with what it does, where it runs and
 how to deploy it. The studio Mac (DRS) has its own operator manual in
-[signlab_drs-pipeline](https://github.com/Amsterdam-Humanities-Labs/signlab_drs-pipeline).
+[signlab_drs-pipeline](https://github.com/Amsterdam-Humanities-Labs/signlab_drs-pipeline/blob/main/docs/manual.md).
+For setting up the studio itself (cameras, DRS, the QR screen), see
+[The studio](../studio/index.md).
 
 !!! warning "Production is hands-off"
     Do not test changes on signcollect.nl. Use a demo host: see
@@ -68,4 +79,5 @@ how to deploy it. The studio Mac (DRS) has its own operator manual in
 ## Related
 
 - [Installing a demo host](install.md)
+- [The studio](../studio/index.md)
 - [Troubleshooting](../troubleshooting/index.md)

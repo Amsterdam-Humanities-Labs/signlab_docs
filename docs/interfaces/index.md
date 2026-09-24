@@ -1,21 +1,22 @@
 # Interfaces
 
-Every SignCollect interface is a web page. The address column gives the path
-after `https://signcollect.nl`, unless a full address is given. All pages need
-a [login](../getting-started/login.md), except where the page says otherwise.
+Every SignCollect interface is a web page. Use this table to find the right
+one and its address. The address column gives the path after
+`https://signcollect.nl`, unless a full address is given. All pages need a
+[login](../getting-started/login.md), except where the page says otherwise.
 
 | Interface | What it is for | Who uses it | Where it lives |
 |---|---|---|---|
-| [Main menu and gloss management](main-menu.md) | The gloss list: search, edit, selfie videos, studio videos. Its menu links to everything else | everyone | `/menu_beta/` |
+| [Main menu and gloss management](main-menu.md) | The gloss list: add, search and edit glosses, selfie videos, studio videos. Its menu links to everything else | everyone | `/menu_beta/` |
 | [Signbank connector](signbank-connector.md) | Settings for the link with Signbank: API key, gloss file, refresh schedule | administrators | `/menu_beta/signbank.php` |
 | [Zinnen interface](zinnen.md) | The list of signed sentences with their videos, statuses and EAF files | annotators | `/zin/zinnen.html` |
 | [Annotation editors](annotation-editors.md) | subBeta8 (annotate a sentence video) and 3DAnn3 (annotate a mocap take in 3D) | annotators | opened from the Zinnen interface |
 | [Annotation tool](annotation-tool.md) | A general EAF editor for any video, with webcam and cluster-review modes | annotators, researchers | `/annotation-tool/` |
-| [Camera Control](camera-control.md) | Starts and stops the five studio cameras and logs each take | recording operators | `/studio_beta/opnameView.html` |
+| [Camera Control](camera-control.md) | Starts and stops the studio cameras (three to five FX30s) and logs each take | recording operators | `/studio_beta/opnameView.html` |
 | [Studio archive](studio-archive.md) | Every studio take by date, all camera angles, and a completeness check | operators, researchers | `/studioIndex/` |
 | [Crop fix manager](crop-fix-manager.md) | A work queue for takes where the automatic crop cut off the sign | researchers, operators | `/videoFix/` |
 | [Patient-info texts](patient-info.md) | Dutch health texts linked to NGT recordings (dormant project) | researchers | `/hh/` |
-| [Mocap portal](mocap-portal.md) | Start page with links to the motion-capture tools | mocap team | `https://mocap.signcollect.nl` |
+| [Mocap portal](mocap-portal.md) | Start page with links to the motion-capture tools | mocap team | `https://mocap.signcollect.nl`, or `/mocap_site/` from the menu |
 | [Motion Capture Studio](mocap-studio.md) | The page used during a Vicon recording session | recording operators | `/mocapStudio/capture.html` |
 | [Vicon dashboard](vicon-dashboard.md) | Which Vicon recordings arrived and whether their files are complete | mocap team | `/viconDashboard/` |
 | [Mocap overview and file API](mocap-overview.md) | The whole mocap dataset at a glance, and an API to find and download animation files | Avatar team | `/mocapOverview/` |

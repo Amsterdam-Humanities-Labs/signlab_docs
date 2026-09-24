@@ -20,14 +20,19 @@ Problems with uploading your own videos, with upload tokens for capture machines
 
 **Type:** both · **Who can fix:** you / administrator
 
-**Likely cause:** the file type is not allowed ("bad_extension"), the file is too large ("upload_failed"), or the gloss no longer exists ("gloss_not_found"). Errors about the uploads folder are server problems.
+**Likely cause:** the error code says why:
+
+- `upload_failed`: the file did not arrive, usually because it is too large.
+- `gloss_not_found`: the gloss was deleted or hidden while you recorded.
+- `bad_extension`: a capture machine sent a file type that is not allowed. This only happens with machine uploads (LSM studio videos), which accept mp4, webm, mov, m4v and mkv.
+- `uploads_dir_unwritable` or `move_failed`: the server cannot write to its uploads folder.
 
 **Try this:**
 
-1. Use one of these types: mp4, webm, mov, m4v, mkv.
-2. Make the file smaller: trim it or lower the resolution.
-3. Reload the gloss page to check that the gloss still exists.
-4. Report errors that mention the uploads folder.
+1. For `upload_failed`: record a shorter video and upload again.
+2. For `gloss_not_found`: reload the gloss page and check that the gloss still exists.
+3. For `bad_extension`: convert the file to mp4 on the capture machine.
+4. Report `uploads_dir_unwritable` and `move_failed` to an administrator.
 
 **Still stuck?** Send the file name, size, the gloss and the error code.
 
@@ -125,20 +130,23 @@ Problems with uploading your own videos, with upload tokens for capture machines
 
 **Type:** user error · **Who can fix:** administrator
 
-**Likely cause:** with the delete option ticked, status "Opnieuw" marks the videos for deletion. The message says how many ("N video(s) op DELETE gezet").
+**Likely cause:** status "Opnieuw" always marks all videos of that text for deletion. The page asks to confirm first ("Let op: status "Opnieuw" zet alle gekoppelde video's op DELETE"). After you click **OK**, the message says how many ("N video(s) op DELETE gezet").
 
 **Try this:**
 
-1. Ask an administrator to undo it on the undelete page.
-2. Next time, leave the delete option unticked if you want to keep the videos.
+1. Ask an administrator to undo it. Send the text ID.
+2. Next time, click **Cancel** in the confirmation if you want to keep the videos. The status then stays as it was.
 
 **Still stuck?** Send the text ID and the time.
+
+!!! note "For the administrator"
+    The undelete page in the Zinnen interface does not cover patient-info videos. Reset them in the database: `UPDATE matched_transcriptions SET added = '1' WHERE m_transcription = <text ID> AND zOg = 'tekst' AND added = 'DELETE';`. Check the row count first with a `SELECT`, because this also restores videos that were deleted on purpose earlier.
 
 ### Patient-info shows "Configuration error" {#up-hh-config}
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** a shared component that patient-info needs is not installed on this host.
+**Likely cause:** the shared library that patient-info needs (signcollect-lib, in `/web/lib`) is not installed on this host. The full message is "Configuration error: signcollect-lib is not installed.".
 
 **Try this:**
 

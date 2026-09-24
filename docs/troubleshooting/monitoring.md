@@ -1,6 +1,6 @@
 # Monitoring and alerts
 
-The client monitor dashboard shows which machines and background jobs still report in. Each job sends a heartbeat. Alerts go to chat and email.
+The [client monitor](../interfaces/client-monitor.md) dashboard shows which machines and background jobs still report in. Each job sends a [heartbeat](../glossary.md). Server alerts go to Discord; the disk alert also goes by email. The dashboard runs only on `signcollect.nl`, not on demo hosts.
 
 !!! note "A missing heartbeat is not lost data"
     The dashboard only knows that it heard nothing. The job may still be running. Monitoring never stops a job.
@@ -35,12 +35,13 @@ The client monitor dashboard shows which machines and background jobs still repo
 
 **Type:** user error · **Who can fix:** you
 
-**Likely cause:** your session expired.
+**Likely cause:** the dashboard has its own login, separate from the SignCollect login, and that session expired.
 
 **Try this:**
 
-1. Log in again on `signcollect.nl`.
-2. Reopen the dashboard from the menu.
+1. Open `signcollect.nl/client_monitor_dashboard/`.
+2. Log in on the **Client Monitor** page with your user name and password.
+3. If the login is refused, ask an administrator for access.
 
 **Still stuck?** See [Login and accounts](login.md).
 
@@ -73,7 +74,7 @@ The client monitor dashboard shows which machines and background jobs still repo
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** the service that collects the dashboard metrics stopped.
+**Likely cause:** the service that collects the dashboard metrics (`client-monitor-metrics`, reports hourly) stopped. The charts show the last week, so a gap appears after an hour or more.
 
 **Try this:**
 
@@ -85,7 +86,7 @@ The client monitor dashboard shows which machines and background jobs still repo
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** less than 10% of the server disk is free.
+**Likely cause:** the server disk is filling up. The Discord alert "Low Disk Space" means less than 10% is free. The email is sent earlier, when less than 30% is free, even though its text says 10%; the current percentage is in the email.
 
 **Try this:**
 
@@ -98,7 +99,7 @@ The client monitor dashboard shows which machines and background jobs still repo
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** the research-drive connection on the server hangs. Studio videos and mocap files cannot be read.
+**Likely cause:** the research-drive connection on the server hangs: a test write and read did not finish within 15 seconds. Studio videos and mocap files cannot be read.
 
 **Try this:**
 
@@ -124,7 +125,7 @@ The client monitor dashboard shows which machines and background jobs still repo
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** a check that keeps failing alerts again at most once an hour. "Recovered" means it passes again.
+**Likely cause:** a check that keeps failing alerts again, at most once an hour. "Recovered: …" means it passes again.
 
 **Try this:**
 
@@ -136,7 +137,7 @@ The client monitor dashboard shows which machines and background jobs still repo
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** some jobs are defined in two schedulers during a migration and run twice. A job whose script is missing is skipped. A run is skipped while the previous run is still busy. A job that runs too long is stopped by the watchdog.
+**Likely cause:** on the core server, most jobs are defined in both schedulers (pythonCron's `scheduler_v2` and the per-job services) until the move to one scheduler, so they run twice. A job whose script is missing is skipped. A run is skipped while the previous run is still busy. A job that runs too long is stopped.
 
 **Try this:**
 

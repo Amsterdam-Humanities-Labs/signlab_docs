@@ -5,6 +5,7 @@ repo_url: https://github.com/Amsterdam-Humanities-Labs/signlab_docs
 edit_uri: edit/main/docs/
 theme:
   name: material
+  custom_dir: overrides
   language: en
   features:
     - navigation.sections
@@ -13,6 +14,7 @@ theme:
     - search.suggest
     - search.highlight
     - content.code.copy
+    - content.action.edit
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -64,6 +66,13 @@ nav:
       - "Get mocap from Vicon to a baked animation": guides/mocap-to-animation.md
       - "Review clusters": guides/review-clusters.md
       - "Export and download annotations": guides/export-annotations.md
+  - Recording studio:
+      - studio/index.md
+      - "Requirements": studio/requirements.md
+      - "Physical setup": studio/physical-setup.md
+      - "Install the DRS Mac": studio/install-drs.md
+      - "The capture day": studio/workflow.md
+      - "Troubleshooting FX30 connections": studio/troubleshooting-fx30.md
   - Troubleshooting:
       - troubleshooting/index.md
       - "Login, accounts and the menu": troubleshooting/login.md

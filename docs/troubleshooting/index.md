@@ -25,7 +25,7 @@ Each issue has its own link. Click the ¶ sign next to a heading to copy it, and
 - **Check the address.** Use `signcollect.nl` and open tools from the menu. Demo hosts miss the studio and AI features. Old bookmarks may point to renamed tools.
 - **Try a second page.** If unrelated pages fail too, it is a server problem. See [Server and system](system.md).
 - **Use Chrome or Edge on a desktop computer.** Several tools need features other browsers lack. See [Browser problems](browser.md).
-- **Wait for the schedule.** Videos, mocap files and syncs arrive by scheduled jobs, not instantly. A recording from this morning may appear later today.
+- **Wait for the schedule.** Videos, mocap files and syncs arrive by scheduled jobs, not instantly. The studio PC uploads the day's recordings at the end of the day, so a recording from today may only appear tomorrow.
 - **Do not close a tab that says saving failed.** Your changes only live there.
 - **In the studio: check cables, power and batteries** before anything else. See [Recording sessions](recording.md).
 
@@ -46,9 +46,9 @@ Never send passwords or upload tokens.
 | Area | Covers | Issues |
 |---|---|---|
 | [Login, accounts and the menu](login.md) | Wrong password, blocked account, login loops, roles, datasets, menu links | 12 |
-| [Glosses and Signbank sync](glosses.md) | Saving, hiding and batch-adding glosses, labels, notes, push and pull to Signbank, the Signbank export | 14 |
+| [Glosses and Signbank sync](glosses.md) | Saving, hiding and batch-adding glosses, labels, notes, push and pull to Signbank, the Signbank export | 16 |
 | [Sentence annotation and EAF files](annotation.md) | The sentence (zin) overview, EAF upload and download, ZIP, status, overwritten edits | 13 |
-| [Annotation editors](editors.md) | subBeta8 and 3DAnn3: loading, saving, handshape search, segmentation, sync | 17 |
+| [Annotation editors](editors.md) | subBeta8 and 3DAnn3: loading, saving, Smart Search, Segment and Spot, sync | 15 |
 | [Annotation tool](annotation-tool.md) | v3, webcam and clusters modes, autosave, video conversion, spotting, Smart Search | 15 |
 | [Recording sessions](recording.md) | FX30 cameras, Camera Control, batteries, overheating, QR codes, downloading clips | 18 |
 | [Video processing and studio archive](video-processing.md) | Crops and the Crop Fix Manager, green screen to blue, thumbnails, missing angles, the DRS pipeline | 17 |

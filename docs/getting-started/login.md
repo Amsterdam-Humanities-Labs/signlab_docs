@@ -6,7 +6,8 @@ every page on signcollect.nl then knows who you are.
 ## Get an account
 
 There is no sign-up page. Ask an administrator to create an account for you.
-They set your user name, password, language (Dutch or English) and role.
+They set your user name, password, language (Dutch or English) and role
+(*user* or *admin*). They do this on the **Gebruikers Beheren** page.
 
 ## Log in
 
@@ -15,8 +16,9 @@ They set your user name, password, language (Dutch or English) and role.
    **Wachtwoord**.
 3. Click **Inloggen**.
 
-You land on the start page, **Kies een interface**. It has two tiles:
-**signCollect interface (nieuw)** (gloss management) and **Zinnen interface**.
+You now see the start page, **Kies een interface**, with two tiles:
+**signCollect interface (nieuw)** (gloss management) and **Zinnen interface**
+(sentences).
 
 If you opened a SignCollect page while logged out, that page sends you to the
 login page first. After you log in, you go straight back to the page you
@@ -49,25 +51,34 @@ window, you log in again.
 
 Log out on a shared computer, such as the studio or lab machines.
 
-1. Click the log-out icon at the top right of the gloss management page. You
-   can also open the menu and choose **Uitloggen**, or go to
-   <https://signcollect.nl/logout.html>.
+1. On the gloss management page, click the log-out icon at the top right.
+   You can also open the menu (**☰**) and choose **Uitloggen** under
+   **Account**, or go to <https://signcollect.nl/logout.html>.
 2. On the **Uitloggen** page, click **Uitloggen** again to confirm, or
    **Annuleren** to stay logged in.
 
-You return to the login page.
+You now see the login page again.
 
 ## Forgotten your password?
 
 SignCollect has no "forgot password" link. Ask an administrator to set a new
-password for you. They do this on the **Gebruikers Beheren** page.
+password for you on the **Gebruikers Beheren** page.
 
-## Changing your password
+## Change your password
 
-1. Open the menu (**☰**).
-2. Under **Account**, choose **Change password**.
-3. Type your current password, then the new one twice (at least 8 characters).
-4. Click **Save**. You stay logged in.
+1. On the gloss management page, open the menu (**☰**).
+2. Under **Account**, choose **Wachtwoord wijzigen** (*Change password*).
+3. Fill in **Huidig wachtwoord** (current password), then the new password
+   twice: **Nieuw wachtwoord** and **Herhaal nieuw wachtwoord**. It must be
+   at least 8 characters and differ from the current one.
+4. Click **Opslaan** (*Save*).
+
+You see *Wachtwoord gewijzigd* (*Password changed*) and stay logged in.
+
+!!! note "Dutch or English labels"
+    The gloss management page shows its labels in the language set for your
+    account. This page gives the Dutch label, with the English one in
+    brackets where it differs.
 
 ## Related
 

@@ -28,7 +28,7 @@ The page has three tabs.
 
 The baked videos that have a gloss SRT.
 
-- Search by base gloss or sentence.
+- Search by base file name (for example `M20260506_0579`) or sentence.
 - Filter on status: **Alle**, **Klaar**, **Check nodig**, **Niet Klaar**.
 - **Download geselecteerde als ZIP:** the SRTs you ticked.
 - **Download alles (huidige filter):** every SRT that matches the filter.
@@ -46,17 +46,19 @@ to see every sentence it occurs in, with timecode, SRT and FBX link.
 ### API
 
 Documentation for the **Gloss timings API** (`action=timings`), with a **Try
-it** form. The API returns, per sentence, when each gloss starts and ends.
+it** form. The API returns, per sentence, when each gloss starts and ends, with links
+to the SRT files of all three tiers and the FBX animation. Example:
+`GET https://signcollect.nl/blendBaking/api.php?action=timings&gloss=HUILEN`.
 
 Parameters, all optional:
 
 | Parameter | Meaning |
 |---|---|
-| `base` or `bases` | One base gloss, or several separated by commas |
-| `sentenceId` | One sentence |
-| `gloss` | A base gloss |
-| `search` | Free text |
-| `mcpStatusTijdAnnotatie` | The time-annotation status |
+| `base` or `bases` | One video base file name, for example `M20260506_0579`, or several separated by commas |
+| `sentenceId` | One sentence. A sentence can have several baked takes |
+| `gloss` | A base gloss, without the variant letter: `HUILEN` matches `HUILEN-A` and `HUILEN-B`. Case-sensitive |
+| `search` | Free text over base file name and sentence |
+| `mcpStatusTijdAnnotatie` | The time-annotation status: `Klaar`, `Check nodig` or `Niet Klaar`. Use `Klaar` when you need accurate times |
 | `page`, `limit` | Paging. `limit` is 25 by default, at most 200 |
 
 !!! tip "Check `success`"

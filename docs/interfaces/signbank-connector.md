@@ -5,8 +5,10 @@ link between SignCollect and [Signbank](https://signbank.cls.ru.nl), the
 online NGT lexicon. It holds the Signbank API key, refreshes the local copy of
 the Signbank gloss list, and sets how often that copy is refreshed.
 
-The gloss list it downloads is used across SignCollect: the gloss search in
-the annotation editors and the annotation tool reads it.
+The gloss list it downloads is used across SignCollect, for example by the
+gloss search in the [annotation editors](annotation-editors.md). You need this
+page when the Signbank key has expired, or when new Signbank glosses must
+show up in SignCollect straight away.
 
 - **Who uses it:** administrators only. Other users see *Deze pagina is alleen
   voor beheerders*.
@@ -16,7 +18,10 @@ the annotation editors and the annotation tool reads it.
 ## Open it
 
 1. Open the [gloss management page](main-menu.md).
-2. Open the menu and choose **Signbank koppeling** under **Admin**.
+2. Open the menu (**☰**) and choose **Signbank koppeling** under **Admin**.
+
+You now see four panels: **Verbinding**, **API-sleutel vervangen**,
+**Glossenbestand** and **Automatisch verversen**.
 
 <!-- screenshot: Signbank koppeling page with the four sections, page /menu_beta/signbank.php -->
 
@@ -56,13 +61,18 @@ refresh. Without it, only **Nu verversen** works.
 ### Replace an expired API key
 
 1. Get a new API key from your Signbank account.
-2. Paste it under **API-sleutel vervangen** and click **Opslaan**.
-3. Click **Verbinding testen** to check it.
+2. Paste it under **API-sleutel vervangen**.
+3. Click **Opslaan**.
+4. Click **Verbinding testen**.
+   The result appears next to the button. If it fails, check that you
+   copied the whole key.
 
 ### Get new Signbank glosses into SignCollect now
 
 1. Click **Nu verversen**.
-2. Wait until **Laatste run** shows the new result and the gloss count.
+   A progress bar shows the download.
+2. Wait until **Laatste run** shows the new result and **Aantal glossen**
+   the new count.
 
 ## Related
 

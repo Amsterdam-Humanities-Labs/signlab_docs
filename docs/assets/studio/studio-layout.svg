@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 630" width="960" height="630" font-family="Helvetica, Arial, sans-serif">
+  <title>Recording studio layout, seen from above</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker>
+  </defs>
+  <rect width="960" height="630" fill="#ffffff"/>
+  <text x="480" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#1f2937">Recording studio, seen from above</text>
+
+  <!-- green screen -->
+  <rect x="280" y="56" width="400" height="22" rx="4" fill="#22c55e"/>
+  <text x="480" y="72" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="bold">Green screen</text>
+
+  <!-- signer -->
+  <circle cx="450" cy="150" r="30" fill="#fde68a" stroke="#b45309" stroke-width="2"/>
+  <text x="450" y="155" text-anchor="middle" font-size="13" fill="#78350f">Signer</text>
+
+  <!-- QR screen beside the signer, facing the cameras -->
+  <rect x="540" y="136" width="90" height="30" rx="4" fill="#111827"/>
+  <text x="585" y="156" text-anchor="middle" font-size="12" fill="#fff">QR screen</text>
+  <text x="585" y="126" text-anchor="middle" font-size="11" fill="#111827">Screen 2: faces the cameras</text>
+
+  <!-- lights -->
+  <g fill="#fef3c7" stroke="#d97706" stroke-width="2">
+    <polygon points="240,130 280,150 240,170"/>
+    <polygon points="740,130 700,150 740,170"/>
+  </g>
+  <text x="200" y="155" text-anchor="middle" font-size="13" fill="#92400e">Light</text>
+  <text x="780" y="155" text-anchor="middle" font-size="13" fill="#92400e">Light</text>
+
+  <!-- camera sightlines -->
+  <g stroke="#93c5fd" stroke-width="1.5" stroke-dasharray="5 4">
+    <line x1="340" y1="286" x2="430" y2="176"/><line x1="340" y1="286" x2="560" y2="166"/>
+    <line x1="480" y1="306" x2="455" y2="182"/><line x1="480" y1="306" x2="580" y2="168"/>
+    <line x1="620" y1="286" x2="475" y2="170"/><line x1="620" y1="286" x2="600" y2="168"/>
+  </g>
+
+  <!-- cameras: 3 required, 2 optional -->
+  <g font-size="12" text-anchor="middle">
+    <g transform="translate(340,300)"><rect x="-26" y="-14" width="52" height="28" rx="4" fill="#1e3a8a"/><text y="4" fill="#fff">FX30</text></g>
+    <g transform="translate(480,320)"><rect x="-26" y="-14" width="52" height="28" rx="4" fill="#1e3a8a"/><text y="4" fill="#fff">FX30</text></g>
+    <g transform="translate(620,300)"><rect x="-26" y="-14" width="52" height="28" rx="4" fill="#1e3a8a"/><text y="4" fill="#fff">FX30</text></g>
+    <g transform="translate(240,250)"><rect x="-26" y="-14" width="52" height="28" rx="4" fill="#fff" stroke="#1e3a8a" stroke-width="2" stroke-dasharray="4 3"/><text y="4" fill="#1e3a8a">FX30</text></g>
+    <g transform="translate(720,250)"><rect x="-26" y="-14" width="52" height="28" rx="4" fill="#fff" stroke="#1e3a8a" stroke-width="2" stroke-dasharray="4 3"/><text y="4" fill="#1e3a8a">FX30</text></g>
+  </g>
+  <text x="700" y="392" font-size="12" fill="#1e3a8a">3 to 5 Sony FX30 cameras</text><text x="700" y="409" font-size="12" fill="#1e3a8a">(dashed = optional), aimed at</text><text x="700" y="426" font-size="12" fill="#1e3a8a">the signer and the QR screen</text>
+
+  <!-- signer screen -->
+  <rect x="140" y="385" width="170" height="30" rx="4" fill="#374151"/>
+  <text x="225" y="405" text-anchor="middle" font-size="12" fill="#fff">Screen 3: item + reference</text>
+  <text x="225" y="432" text-anchor="middle" font-size="11" fill="#374151">faces the signer</text>
+
+  <!-- USB-C cables, routed around the signer screen -->
+  <g stroke="#6b7280" stroke-width="1.5" fill="none">
+    <path d="M455 520 C 420 450, 340 400, 340 314"/>
+    <path d="M480 520 L 480 334"/>
+    <path d="M505 520 C 540 450, 620 400, 620 314"/>
+  </g>
+  <text x="590" y="492" font-size="11" fill="#4b5563">USB-C to each camera</text>
+
+  <!-- operator desk -->
+  <rect x="140" y="490" width="190" height="30" rx="4" fill="#374151"/>
+  <text x="235" y="510" text-anchor="middle" font-size="12" fill="#fff">Screen 1: Camera Control</text>
+  <circle cx="235" cy="558" r="30" fill="#e0e7ff" stroke="#4338ca" stroke-width="2"/>
+  <text x="235" y="562" text-anchor="middle" font-size="11" fill="#312e81">Operator</text>
+  <rect x="120" y="586" width="64" height="22" rx="4" fill="#fecaca" stroke="#b91c1c" stroke-width="1.5"/>
+  <text x="152" y="601" text-anchor="middle" font-size="11" fill="#7f1d1d">Pedals</text>
+
+  <!-- DRS Mac -->
+  <rect x="400" y="520" width="160" height="50" rx="6" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+  <text x="480" y="541" text-anchor="middle" font-size="13" fill="#111827" font-weight="bold">DRS (Mac)</text>
+  <text x="480" y="559" text-anchor="middle" font-size="11" fill="#374151">DaVinci Resolve Studio</text>
+
+  <!-- server -->
+  <rect x="780" y="522" width="160" height="46" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="860" y="542" text-anchor="middle" font-size="13" fill="#1e3a8a" font-weight="bold">SignCollect server</text>
+  <text x="860" y="559" text-anchor="middle" font-size="11" fill="#1e3a8a">upload at end of day</text>
+  <path d="M560 545 L 780 545" stroke="#1d4ed8" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>
