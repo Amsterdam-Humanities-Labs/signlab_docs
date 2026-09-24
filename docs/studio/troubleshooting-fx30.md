@@ -65,7 +65,7 @@ Only one process can hold the cameras. Never run two `fx30MultiRecord`s.
 
 | Field | Meaning |
 |---|---|
-| `cameras[].model` | Model and ID, for example `ILME-FX30 (D4DA001EC952)`. The ID in brackets is what Camera Control's `CAMERA_MAP` uses |
+| `cameras[].model` | Model and ID, for example `ILME-FX30 (D4DA001EC952)`. The ID in brackets is what goes in Camera Control's `cameras.json` |
 | `cameras[].connected` | `true` when the SDK is connected |
 | `scanning`, `scanStatus` | A scan is running, and what it is doing |
 | `downloading`, `listing` | Busy with a download or file list. Cameras disappear from the page meanwhile; that is normal |
@@ -108,7 +108,7 @@ cameras are connected, it rescans every 5 seconds by itself.
 |---|---|---|
 | Event log | `pyqtController/capture_logs/events-<date>.log` when the controller started the server; `capture_logs/` next to the binary when you started it by hand | `SCAN_ENUMERATED` (FX30s seen on USB), `CONNECTED`, `CONNECT_FAILED`, `DISCONNECTED after …s`, `RECONNECTED`, `SCAN_RESULT` |
 | Server output | Only when you run it in a terminal (the controller discards it) | See the table below |
-| Camera Control debug log | `logs/fx30_debug.log` on the server | Browser and controller events. Off with `?fxdebug=0` |
+| Camera Control debug log | `studio_beta/logs/fx30_debug.log` on the server (read it over ssh; the web server refuses it) | Browser and controller events. Off with `?fxdebug=0` |
 
 To see the server output, quit the controller app, then run the server by
 hand:
@@ -170,7 +170,7 @@ Stop it with Ctrl-C and start the controller app again when you are done.
 
 | Message | Cause |
 |---|---|
-| *Niet alle cameras online! Slechts N van de 5 cameras online.* | Fewer cameras than listed in `CAMERA_MAP`. With a studio of three cameras, `CAMERA_MAP` must list only those three (see [Install the DRS Mac](install-drs.md#camera-control-and-the-server)) |
+| *Niet alle cameras online! Slechts N van de 5 cameras online.* | Fewer cameras online than listed in `cameras.json` (or, without it, the five in `cameras.example.json`). With a studio of three cameras, `cameras.json` must list only those three (see [Install the DRS Mac](install-drs.md#camera-control-and-the-server)) |
 | *Camera controller niet bereikbaar...* | See `Controller unreachable` above |
 
 ## Related

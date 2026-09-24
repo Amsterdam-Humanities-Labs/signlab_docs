@@ -15,6 +15,9 @@ camera file, for example `M20251001_2313`.
 
 ## Open it
 
+Log in to SignCollect first: the crop fix manager only works for logged-in
+users. Without a login it shows a message with a link to the login page.
+
 - Go to <https://signcollect.nl/videoFix/>, or
 - in the [gloss management](main-menu.md) menu, choose **Video Crop fix**.
 

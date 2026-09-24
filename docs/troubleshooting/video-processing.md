@@ -79,7 +79,21 @@ For how the DRS pipeline is set up, see [Installing DRS](../studio/install-drs.m
 **Still stuck?** Send the time and the exact text.
 
 !!! note "For the administrator"
-    Check that `videoFix/mysql_config.php` exists in the web root and that `videofix_data/crop_fixes.json` is writable by the web server. On a demo host, running the install again recreates the link.
+    Check that `videoFix/mysql_config.php` exists in the web root and that `videofix_data/crop_fixes.json` is writable by the web server. On a demo host, running the install again recreates the link. If the page instead says you are not logged in, log in to SignCollect and reload.
+
+### Crop fixes are no longer picked up by DRS {#vp-crop-token}
+
+**Type:** both · **Who can fix:** administrator
+
+**Likely cause:** the crop-fix service on DRS sends a token (`VIDEOFIX_TOKEN`) with every request to the crop fix manager. If it is missing or differs from the server's, the server answers 401 and nothing is fixed.
+
+**Try this:**
+
+1. On the server, check that `VIDEOFIX_TOKEN` is set in the web root's `.env`.
+2. On DRS, check that `/Users/signlab/drs/.env` has the same value.
+3. Restart the crop-fix service on DRS (see [Install the DRS Mac](../studio/install-drs.md)).
+
+**Still stuck?** Send the crop-fix service log from DRS.
 
 ### My crop fix stays "unresolved" {#vp-crop-unresolved}
 

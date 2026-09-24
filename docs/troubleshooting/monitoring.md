@@ -82,11 +82,11 @@ The [client monitor](../interfaces/client-monitor.md) dashboard shows which mach
 
 **Still stuck?** Send the time.
 
-### Alert: "Low Disk Space" or email "Disk space is below 10%" {#mon-disk-alert}
+### Alert: "Low Disk Space" or email "Disk space is below 30%" {#mon-disk-alert}
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** the server disk is filling up. The Discord alert "Low Disk Space" means less than 10% is free. The email is sent earlier, when less than 30% is free, even though its text says 10%; the current percentage is in the email.
+**Likely cause:** the server disk is filling up. The Discord alert "Low Disk Space" means less than 10% is free. The email is sent earlier, when less than 30% is free; the current percentage is in the email.
 
 **Try this:**
 

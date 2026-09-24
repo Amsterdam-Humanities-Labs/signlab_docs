@@ -38,7 +38,7 @@ make the studio reliable or easier to run.
 
 | Item | Required? | Why |
 |---|---|---|
-| A SignCollect server | Required | Camera Control, the QR page (`opnameLR.html`), the studioSupport websocket and the upload endpoints (`videoProc/upload2.php`, `videoProc/upload_post.php`, `renderServer`, `drs_ep/api.php`, `qr/qrResultReceiver.php`) all run there. The pipeline's server address is set with `SIGNCOLLECT_URL` |
+| A SignCollect server | Required | Camera Control and the QR page (`opnameLR.html`; both in signlab_camera-control), the studioSupport websocket and the upload endpoints (`videoProc/upload2.php`, `videoProc/upload_post.php`, `renderServer`, `drs_ep/api.php`, `qr/qrResultReceiver.php`) all run there. The pipeline's server address is set with `SIGNCOLLECT_URL` |
 | SignCollect login for the operator | Required | Camera Control asks for a login |
 | SignCollect accounts for signers | Required | Camera Control lists glosses per signer (the gloss owner) |
 | Database credentials (`DB_*` in `.env`) | Optional | Only for the repair tools `services/qrConvert.py` and `tools/check_studiofiles.py` |
