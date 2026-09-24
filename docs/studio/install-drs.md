@@ -79,6 +79,7 @@ already done. `scripts/setup-drs.sh --help` shows all options.
 | Setting | Where | Default |
 |---|---|---|
 | Server the pipeline uploads to | `SIGNCOLLECT_URL` in `/Users/signlab/drs/.env` | `https://signcollect.nl` |
+| Crop-fix token | `VIDEOFIX_TOKEN` in `.env`; the same value as `VIDEOFIX_TOKEN` in the server's `.env` | None: crop fixes stop until it is set |
 | Database credentials (repair tools only) | `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME` in `.env` | Empty password |
 | Camera server, staging, rclone, QR screen | `pyqtController/config.json` in the SDK clone | Written by the script |
 | Research drive | rclone remote `signcollect:` in the `signlab` user's rclone config | None |
@@ -125,13 +126,24 @@ These files are in
 [signlab_camera-control](https://github.com/Amsterdam-Humanities-Labs/signlab_camera-control)
 on the server. A new studio needs them changed:
 
-1. **Camera serials.** `opnameView.html` lists the serials of the five
-   current cameras in `CAMERA_MAP` (and again in `cameraArray` in the **O**
-   key handler). The number of entries is the number of cameras the page
-   expects. With other cameras or only three, every take warns *Niet alle
-   cameras online!*. List exactly your cameras. Read the serials with
-   `curl -s localhost:8080/api/status`: the ID in brackets in `"model"`, for
-   example `ILME-FX30 (D4DA001EC952)`.
+1. **Camera list.** Camera Control expects the cameras listed in
+   `cameras.json` next to `opnameView.html` (in `studio_beta/` on the
+   server). Without that file it uses `cameras.example.json`, the lab's five
+   cameras, and with fewer or other cameras every take warns *Niet alle
+   cameras online!*.
+    1. Read each camera's serial with `curl -s localhost:8080/api/status` on
+       the Mac: the ID in brackets in `"model"`, for example
+       `ILME-FX30 (D4DA001EC952)`.
+    2. Copy `cameras.example.json` to `cameras.json` and list exactly your
+       cameras, each with a column name `camera1` to `camera5`:
+
+        ```json
+        {"D4DA001EACEA": "camera1", "D4DA001EAC65": "camera2", "D4DA001EAD5C": "camera3"}
+        ```
+
+    3. Reload Camera Control. The top bar now counts against your cameras.
+
+    A studio has at most five cameras: the names are database columns.
 2. **Camera server address.** `fx30proxy.php` reaches the camera server at
    `signlabs-mini.taila8bdbd.ts.net:8080`. Change `$DEFAULT_HOST` to your
    Mac's Tailscale name, or open Camera Control with

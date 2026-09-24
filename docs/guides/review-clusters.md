@@ -53,12 +53,14 @@ The current set holds the *horeco* and *health_holland* videos.
 5. When every pair is done, the page says *All pairs reviewed*. Tell the
    researcher who runs the pipeline.
 
-Each decision is sent to the server at once.
+Each decision is sent to the server at once. When you open the page again,
+it loads your earlier decisions and starts at the first undecided pair, so
+you can stop and continue later.
 
-!!! warning "The page does not load earlier decisions"
-    After a reload, the counter starts at 0 and every pair shows as undecided
-    again, even though your earlier decisions are stored on the server.
-    Review a set in one session, or note where you stopped.
+!!! note "When a decision is not saved"
+    If a save fails, you get an alert and the pair goes back to undecided:
+    decide it again. If your login has expired, the page sends you to the
+    login page first.
 
 ## 3. Correct the segments of each video
 
