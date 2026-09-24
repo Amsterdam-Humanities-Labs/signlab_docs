@@ -19,6 +19,9 @@ texts have been signed and annotated.
 - in the [gloss management](main-menu.md) menu, choose **Health Holland
   Interface**.
 
+You now see the **Dashboard**, with the links **View Contents** and **HH
+Interface**.
+
 <!-- screenshot: HH dashboard, page /hh/index.html -->
 
 ![HH dashboard](../assets/screenshots/patient-info.png)
@@ -28,24 +31,24 @@ texts have been signed and annotated.
 
 | Page | Address | What it shows |
 |---|---|---|
-| Dashboard | `/hh/index.html` | The start page |
+| Dashboard | `/hh/index.html` | The start page, with totals |
 | Contents | `/hh/contents.html` | The topics and their texts |
 | Words Statistics | `/hh/words.html` | How often each word occurs |
 | Sentences Statistics | `/hh/sentences.html` | The sentences of the texts |
 | Begrippenlijst | `/hh/begrippenlijst.html` | The glossary of health terms |
-| HH Index Overview | `/hh/overview_hh.html` | Which topics have video, segments and annotations |
+| HH Index Overview (link **HH Interface**) | `/hh/overview_hh.html` | Which topics have video, segments and annotations |
 
 **HH Index Overview** works like the [Zinnen interface](zinnen.md): it has
-filters, status drop-downs, **View Logs** and **Upload EAF**. Its edit button
-opens the subBeta8 [annotation editor](annotation-editors.md).
+filters, status drop-downs, **View Logs** and **Upload EAF**. Its **Bewerk
+EAF** button opens the subBeta8 [annotation editor](annotation-editors.md).
 
 ## Common tasks
 
 ### Find which health texts are annotated
 
-1. Open **HH Index Overview**.
+1. On the Dashboard, click **HH Interface**.
 2. Filter on the status you need.
-3. Click the edit button on a row to open it in subBeta8.
+3. Click **Bewerk EAF** on a video to open it in subBeta8.
 
 ### Record health texts in the studio
 

@@ -34,7 +34,13 @@ Problems that come from the core server at `signcollect.nl` itself: the database
 **Still stuck?** Send the time, the exact browser message, and whether other SignCollect addresses (for example the API) also fail.
 
 !!! note "For the administrator"
-    Run the web server's configuration test first and fix the file and line it names. Reload before you restart. After a full outage, start services in this order: database, research-drive mount, PHP, web server, Vicon sync, scheduler, job wrappers, the rest.
+    Test the configuration first and fix the file and line it names, then reload. Restart only if the reload fails:
+
+    ```bash
+    sudo apache2ctl configtest && sudo systemctl reload apache2
+    ```
+
+    After a full outage, start services in this order: `mysql`, `rclone-mount`, `php8.3-fpm`, `apache2`, the viconSync units, `python-scheduler`, the job wrappers, the rest. See the [runbook](https://github.com/Amsterdam-Humanities-Labs/signlab_signcollect-stack/blob/main/docs/runbook.md#restart).
 
 ### Pages load, but everything that saves or queries data fails {#sys-php-down}
 
@@ -64,7 +70,13 @@ Problems that come from the core server at `signcollect.nl` itself: the database
 **Still stuck?** Send the time, what you were saving or uploading, and the error text.
 
 !!! note "For the administrator"
-    Check free space and free inodes. Truncate large job logs; never delete an open log, because it keeps its space. A log clean-up script exists but is not scheduled. Never delete the scheduler state, the database files, or anything on the research drive. Afterwards, check for failed services and start the database first.
+    Check free space and free inodes (`df -h`, `df -i`). Empty large job logs with `: > <log>`; never delete an open log, because it keeps its space. The clean-up script is not scheduled; run it by hand, first with `--dry-run`:
+
+    ```bash
+    python3 /home/gomer/pythonCron/emergency_log_cleanup.py --log-dir /home/gomer/pythonCron/logs --dry-run
+    ```
+
+    Never delete the scheduler state (`scheduler_state.db`), the database files, or anything on the research drive. Afterwards, check for failed services (`systemctl --failed`) and start the database first.
 
 ### My browser says the certificate is not valid or has expired {#sys-certificate}
 
@@ -109,7 +121,7 @@ Problems that come from the core server at `signcollect.nl` itself: the database
 **Still stuck?** Send the page, the date of the last data that did arrive, and one example ID that should have been updated.
 
 !!! note "For the administrator"
-    Restart the job wrappers and then the watchdog. Never delete the scheduler state, or every job runs at once.
+    Check `systemctl status python-scheduler` and `systemctl list-units 'service-*'`. Restart the scheduler, then the job wrappers, then `watchdog-daemon`. Never delete the scheduler state, or every job runs at once.
 
 ### A page shows "500 Internal Server Error" {#sys-500}
 
@@ -120,8 +132,7 @@ Problems that come from the core server at `signcollect.nl` itself: the database
 **Try this:**
 
 1. Open the page from the [menu](login.md#login-menu) instead of a bookmarked or typed address.
-2. If you typed the address, remove anything after the last `/` and try the menu link again.
-3. If the menu link also gives 500, report it.
+2. If the menu link also gives 500, report it.
 
 **Still stuck?** Send the full address, the time, and what you clicked just before.
 
@@ -129,7 +140,7 @@ Problems that come from the core server at `signcollect.nl` itself: the database
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** the tool cannot read its database settings on the server, or the database is down.
+**Likely cause:** the tool cannot read its database settings on the server, or the database is down. The message often starts with "Connection failed:" or "Configuration error".
 
 **Try this:**
 
@@ -145,7 +156,7 @@ Problems that come from the core server at `signcollect.nl` itself: the database
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** some nightly jobs (video counts, the daily 3D render, the annotation backup, the video cache) run from a separate schedule. If that schedule is broken, the night's output is missing.
+**Likely cause:** some nightly jobs (video counts, the daily 3D render, the annotation backup, the video cache) run from a separate schedule, the server's crontab. If that schedule is broken, the night's output is missing.
 
 **Try this:**
 
@@ -158,7 +169,7 @@ Problems that come from the core server at `signcollect.nl` itself: the database
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** some jobs are scheduled in two places during the move to one scheduler. The Vicon sync is one known case.
+**Likely cause:** some jobs are scheduled in two places until the move to one scheduler. The Vicon sync is one known case. See also [A scheduled job ran twice](monitoring.md#mon-job-twice).
 
 **Try this:**
 
@@ -184,7 +195,7 @@ Problems that come from the core server at `signcollect.nl` itself: the database
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** uploads of mocap packages and 3D body jobs now need an upload token. After an update, the new token was not set on the server or on the capture machine.
+**Likely cause:** uploads of mocap packages and SAM 3D body jobs need an upload token. After an update, the new token was not set on the server or on the capture machine.
 
 **Try this:**
 

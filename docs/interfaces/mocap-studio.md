@@ -16,7 +16,7 @@ copy of the day's recordings to the server.
 ## Open it
 
 - Go to <https://signcollect.nl/mocapStudio/capture.html>, or
-- on the [mocap portal](mocap-portal.md), click **3D Studio**.
+- on the [mocap portal](mocap-portal.md), click **3D Studio Capture Site**.
 
 <!-- screenshot: mode selection with Glosses, HH, Sentences, BAK and Capture List, page /mocapStudio/capture.html -->
 
@@ -44,7 +44,9 @@ copy of the day's recordings to the server.
   **Custom Gloss**, **Custom Command**. These send commands to Unreal. Use them
   only when the session lead asks you to.
 - Counters: how many items are left, and how many were recorded today.
-- **Duration** slider (3 to 15 seconds): the countdown before a capture.
+- **Duration** slider (3 to 15 seconds, 5 by default): how long a capture
+  runs. The capture stops by itself after this time. Tick **1000s** to turn
+  the automatic stop off and stop by hand.
 - The large text in the middle is the item to sign.
 - A 3D preview of the reference animation.
 
@@ -52,7 +54,7 @@ copy of the day's recordings to the server.
 
 | Key | Action |
 |---|---|
-| A | Start the capture. Press again to stop |
+| A | Start the capture (after one second). Press again to stop early |
 | B | Save the capture and go to the next item |
 | C | Skip this item |
 | X | Leave theme batch mode |
@@ -62,19 +64,21 @@ copy of the day's recordings to the server.
 ### Record an item
 
 1. Choose a mode and an item.
-2. Press **A**. The countdown runs, then the capture starts.
-3. Press **A** again when the signer is done.
+2. Set **Duration** to a bit longer than the item takes to sign.
+3. Press **A**. The capture starts after one second and stops by itself when
+   the duration is over. Press **A** again to stop earlier.
 4. Press **B** to save and go to the next item, or **C** to skip.
 
 ### Copy today's recordings to the server now
 
-The server copies new recordings from the Vicon PC every night. To do it
+The server copies new recordings from the Vicon PC every night, at about 02:30. To do it
 straight after a session:
 
 1. Click **Manual Sync**.
 2. Click **Yes, sync now**.
-3. The window shows *Triggering sync...* and then *Syncing...* with live
-   status. It keeps checking for about ten minutes.
+3. The window shows *Triggering sync...*, then *Sync started. Fetching
+   status…* and the live status. It keeps checking for about ten minutes. On
+   an error, the button changes to **Retry**.
 4. Check the result on the [Vicon dashboard](vicon-dashboard.md).
 
 ## Related

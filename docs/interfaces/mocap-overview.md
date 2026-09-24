@@ -24,7 +24,7 @@ takes about half an hour.
 ## The file API
 
 Search files with `GET /mocapOverview/api/files`. Send your key in the
-`X-API-Key` header. The playground on `/mocapOverview/api/` lets you try every
+`X-API-Key` header (or as `?key=`). The playground on `/mocapOverview/api/` lets you try every
 parameter in the browser once you are logged in.
 
 ```bash
@@ -51,7 +51,7 @@ curl -H "X-API-Key: <your key>" \
 | `latest` | `1` | Only the newest take per name, type and format |
 | `group` | `take` | One entry per take with its files (JSON only) |
 | `sort` | `-date` | `name`, `date`, `size`, `modified`; a `-` sorts descending |
-| `limit`, `offset` | `100` | Paging; the JSON `next` field holds the next page |
+| `limit`, `offset` | `100` | Paging. JSON: 100 by default, at most 1000. The JSON `next` field holds the next page |
 | `output` | `csv` | `json` (default), `csv` (download) or `urls` (one URL per line) |
 
 `GET /mocapOverview/api/meta` returns the types, sessions, date range and counts.

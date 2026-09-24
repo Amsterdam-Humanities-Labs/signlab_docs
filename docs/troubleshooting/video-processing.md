@@ -1,9 +1,11 @@
 # Video processing and studio archive
 
-After a session, the studio Mac (DRS) copies the clips to the research drive, renders them, crops them, makes thumbnails and uploads the results to SignCollect. Problems here show up later, as a video that is missing, cut off, or has the wrong background.
+At the end of the capture day, the studio Mac (DRS) downloads the clips from the cameras and copies them to the research drive. It then renders them, crops them, makes thumbnails and uploads the results to SignCollect. Problems here show up later, as a video that is missing, cut off, or has the wrong background.
+
+For how the DRS pipeline is set up, see [Installing DRS](../studio/install-drs.md) and [Studio workflow](../studio/workflow.md).
 
 !!! tip "Processing is not instant"
-    Clips younger than 10 minutes wait for the next copy run. Rendering runs every hour. A clip from this morning may not be visible until later today.
+    Clips younger than 10 minutes wait for the next copy run (every 15 minutes). Rendering runs every hour; cropping and converting every 15 minutes. Today's clips may not be visible until later today.
 
 ### The video is not cropped correctly: the sign is cut off {#vp-bad-crop}
 
@@ -13,18 +15,18 @@ After a session, the studio Mac (DRS) copies the clips to the research drive, re
 
 **Try this:**
 
-1. Open the Crop Fix Manager from the menu.
+1. Open the [Crop Fix Manager](../interfaces/crop-fix-manager.md) from the menu.
 2. Add the take.
 3. Mark which edges the sign crosses: top, left, right or bottom.
-4. Takes labelled "GEBAAR UIT DE BEELD" can be loaded into the queue automatically.
+4. To queue every take labelled "GEBAAR UIT DE BEELD" at once, click **Populate from "GEBAAR UIT DE BEELD"**.
 
-**Still stuck?** Send the take ID and the edges. The re-crop service on the studio Mac is started by hand; ask an administrator if the queue does not move.
+**Still stuck?** Send the take ID and the edges. The re-crop service on the studio Mac is started by hand; ask an administrator if the queue does not move. See also [Fix a crop](../guides/fix-crop.md).
 
 ### The video was not cropped at all {#vp-no-crop}
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** the crop step found no person in the frame ("pose_detection_failed"). It retries every run, but the same clip keeps failing.
+**Likely cause:** the crop step found no person in the frame (`pose_detection_failed`). It retries every run, but the same clip keeps failing.
 
 **Try this:**
 
@@ -63,11 +65,11 @@ After a session, the studio Mac (DRS) copies the clips to the research drive, re
 
 **Still stuck?** Send the take ID and the exact error text.
 
-### Crop Fix Manager gives a 500 error or "Failed to write crop fixes file" {#vp-crop-500}
+### Crop Fix Manager gives a 500 error, "Unexpected end of JSON input" or "Failed to write crop fixes file" {#vp-crop-500}
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** the page cannot read its settings or cannot write its data on the server.
+**Likely cause:** the page cannot read its database settings, or cannot write its data file on the server. "Unexpected end of JSON input" means the server answered with an error instead of data.
 
 **Try this:**
 
@@ -75,6 +77,9 @@ After a session, the studio Mac (DRS) copies the clips to the research drive, re
 2. Report it.
 
 **Still stuck?** Send the time and the exact text.
+
+!!! note "For the administrator"
+    Check that `videoFix/mysql_config.php` exists in the web root and that `videofix_data/crop_fixes.json` is writable by the web server. On a demo host, running the install again recreates the link.
 
 ### My crop fix stays "unresolved" {#vp-crop-unresolved}
 
@@ -97,22 +102,28 @@ After a session, the studio Mac (DRS) copies the clips to the research drive, re
 
 **Try this:**
 
-1. Open Background Fix from the menu.
+1. Open Background Fix at `signcollect.nl/videoBackgroundFix/`. It is not in the menu.
 2. Pick the date and camera.
 3. Draw mask boxes over the parts that must become blue. The default colour is the studio blue.
 4. Preview the result.
-5. Run the batch, then check the result. You can restore the original if it looks wrong.
+5. Run the batch. It ends with "Batch complete: X done, Y error".
+6. Check the result. If it looks wrong, restore the original.
 
 **Still stuck?** Send the date, camera, take ID and the batch summary ("Batch complete: X done, Y error").
 
 !!! note
-    Background Fix also widens the video to the 1:1.15 ratio and pads it with blue. If it cannot find the signer, it centres on the middle of the frame. It exists only on `signcollect.nl`, not on demo hosts.
+    Background Fix also widens the video to a width of 1.15 times its height, padding the sides with blue. If it cannot find the signer, it centres on the middle of the frame. It needs the studio file service, so on a demo host it only shows "Could not load date list".
 
 ### Background Fix shows "render failed", "source missing" or "no backup" {#vp-bgfix-errors}
 
 **Type:** both · **Who can fix:** you / administrator
 
-**Likely cause:** "Date must be YYYYMMDD" means the date is typed wrong. "source missing" means the original clip is not there. "no backup" on restore means there is no original to go back to. "render failed" or "probe failed" means processing the file failed.
+**Likely cause:**
+
+- "Date must be YYYYMMDD": the date is typed wrong.
+- "source missing": the original clip is not there.
+- "no backup" (on restore): there is no original to go back to.
+- "render failed" or "probe failed": processing the file failed.
 
 **Try this:**
 
@@ -126,7 +137,7 @@ After a session, the studio Mac (DRS) copies the clips to the research drive, re
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** Background Fix could not reach the service that lists recording dates.
+**Likely cause:** Background Fix could not reach the service that lists recording dates. On a demo host this is expected.
 
 **Try this:**
 
@@ -139,7 +150,7 @@ After a session, the studio Mac (DRS) copies the clips to the research drive, re
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** the target ratio is 1:1.15. A clip that ends up with a different shape is listed in a dimension report.
+**Likely cause:** the target shape is a width of 1.15 times the height (1440 × 1252). A clip that ends up with a different shape is listed in a dimension report (`dimension_issues.json`).
 
 **Try this:**
 
@@ -151,7 +162,7 @@ After a session, the studio Mac (DRS) copies the clips to the research drive, re
 
 **Type:** both · **Who can fix:** you / administrator
 
-**Likely cause:** the archive shows the processed image, then the raw thumbnail, and otherwise a placeholder. "Missing" means the take was logged but no clip was matched to it: the clip was not downloaded, or its QR code was not read.
+**Likely cause:** the archive shows the processed image, then the raw thumbnail, and otherwise a placeholder. "Missing" means the take was logged but no clip was matched to it: the clip was not downloaded, or its QR code was not read (for example because the QR screen was not in view of the cameras). With three or four cameras, the angles of the cameras you did not use are always empty.
 
 **Try this:**
 
@@ -166,26 +177,31 @@ After a session, the studio Mac (DRS) copies the clips to the research drive, re
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** the studio Mac processed the clip, but the upload to SignCollect failed. The crop step does not retry uploads.
-
-**Try this:**
-
-1. Wait for the next hourly run.
-2. If it is still missing, report the date.
-
-**Still stuck?** Send the date and take IDs. An administrator can upload missing results again for a whole date.
-
-### Thumbnails are missing or wrong for a whole date {#vp-thumbnails}
-
-**Type:** system error · **Who can fix:** administrator
-
-**Likely cause:** conversion or thumbnail creation failed for that date.
+**Likely cause:** the studio Mac processed the clip, but the upload to SignCollect failed ("Upload failed" in the crop log). The crop step does not retry uploads, so waiting does not help.
 
 **Try this:**
 
 1. Report the date.
 
-**Still stuck?** Ask an administrator to regenerate the thumbnails for that date.
+**Still stuck?** Send the date and take IDs.
+
+!!! note "For the administrator"
+    On the studio Mac, in `~/drs`, run `python3 tools/backfill_post_uploads.py <YYYY-MM-DD> --dry-run`. Check the list, then run it again without `--dry-run`.
+
+### Thumbnails are missing or wrong for a whole date {#vp-thumbnails}
+
+**Type:** system error · **Who can fix:** administrator
+
+**Likely cause:** conversion or thumbnail creation failed for that date, or the thumbnail upload failed.
+
+**Try this:**
+
+1. Report the date.
+
+**Still stuck?** Ask an administrator to send the thumbnails again for that date.
+
+!!! note "For the administrator"
+    On the studio Mac, in `~/drs`: `python3 tools/backfill_post_uploads.py <YYYY-MM-DD> --thumbs-only --dry-run`, then without `--dry-run`.
 
 ### A clip was never rendered {#vp-never-rendered}
 
@@ -197,6 +213,9 @@ After a session, the studio Mac (DRS) copies the clips to the research drive, re
 
 1. Do not open DaVinci Resolve on the studio Mac yourself. The batch closes it by force and your work is lost.
 2. Report the clip.
+
+!!! note "For the administrator"
+    The reason is in `post_noncropped/<clip>.skip` for that date. Fix the cause, delete the `.skip` file and wait for the next hourly run.
 
 **Still stuck?** Send the date, take ID and camera.
 
@@ -217,12 +236,16 @@ After a session, the studio Mac (DRS) copies the clips to the research drive, re
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** the pipeline supervisor on the studio Mac is not running, or a step crashed five times in five minutes and restarts are paused for 15 minutes.
+**Likely cause:** the pipeline supervisor on the studio Mac (`startupScript.py`) is not running, or a step crashed five times in five minutes and restarts are paused for 15 minutes.
 
 **Try this:**
 
-1. Wait 15 minutes.
-2. If nothing moves, report it.
+1. Check that the capture day has ended: the automatic download starts then.
+2. Wait 15 minutes.
+3. If nothing moves, report it.
+
+!!! note "For the administrator"
+    On the studio Mac: `ps -p $(cat ~/drs/startup.pid)` must show `startupScript.py`. If a single service stopped, `grep "Disabling restarts" ~/drs/startup.log` names it.
 
 **Still stuck?** Send the date and when the session ended.
 

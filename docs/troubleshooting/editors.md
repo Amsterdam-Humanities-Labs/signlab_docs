@@ -45,26 +45,27 @@ Problems in the two sentence editors: **subBeta8**, the video and EAF editor wit
 
 **Still stuck?** Send the sentence ID, the address and the time.
 
-### "Autosave failed" or "Save failed", and my changes are not saved {#ed-save-failed}
+### "Autosave failed: …", and the save button says "Save Failed!" {#ed-save-failed}
 
-**Type:** system error · **Who can fix:** administrator
+**Type:** both · **Who can fix:** you / administrator
 
-**Likely cause:** the server refused the save. The popup shows its reason after the colon.
+**Likely cause:** the server refused the save. The popup shows its reason after the colon. "not logged in" means your session expired. "Failed to write SRT for tier …" or "Failed to write EAF file." is a server problem.
 
 **Try this:**
 
 1. Do not close the tab.
 2. Copy the error text after "Autosave failed:".
-3. Make a small edit to trigger a new save. Wait for "Saving successful".
-4. If it fails again, report it and keep the tab open.
+3. If it says "not logged in", log in again on `signcollect.nl` in a new tab. Keep the editor tab open.
+4. Make a small edit in the editor to trigger a new save. Wait for "Saving successful".
+5. If it fails again, report it and keep the tab open.
 
 **Still stuck?** Send the sentence ID, the full error text and the time.
 
-### "Network error - changes NOT saved!" {#ed-network-error}
+### "Network error - changes NOT saved!", and the save button says "Save Error!" {#ed-network-error}
 
 **Type:** user error · **Who can fix:** you
 
-**Likely cause:** your computer lost the connection while the editor was uploading the file.
+**Likely cause:** your computer lost the connection while the editor was sending the save. A popup also says "Upload failed due to a network error."
 
 **Try this:**
 
@@ -78,21 +79,21 @@ Problems in the two sentence editors: **subBeta8**, the video and EAF editor wit
 
 **Type:** both · **Who can fix:** you
 
-**Likely cause:** the last save failed. The editor tries one final save when you leave, but that last attempt may not arrive.
+**Likely cause:** you clicked a link while there were unsaved changes, and the save the editor made before leaving failed.
 
 **Try this:**
 
-1. Click **Cancel** to stay on the page.
+1. Click **Cancel** to stay on the page. **OK** leaves the page and loses the changes.
 2. Fix the connection or wait a moment.
 3. Make a small edit and wait for "Saving successful". Then leave.
 
 **Still stuck?** See [Autosave failed](#ed-save-failed).
 
-### Handshape search says "No video filename found" {#ed-no-filename}
+### Smart Search says "No video filename found" {#ed-no-filename}
 
 **Type:** user error · **Who can fix:** you
 
-**Likely cause:** the editor was opened without a video name in its address, for example from a shortened or edited link.
+**Likely cause:** **Smart Search** (handshape search, on the *Signbank ID glossen* tier) needs the video name in the editor's address. The editor was opened without it, for example from a shortened or edited link.
 
 **Try this:**
 
@@ -105,11 +106,11 @@ Problems in the two sentence editors: **subBeta8**, the video and EAF editor wit
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** the handshape recognition service failed or could not be reached.
+**Likely cause:** the handshape recognition service behind **Smart Search** failed or could not be reached. The text after the colon gives the reason.
 
 **Try this:**
 
-1. Wait a few minutes and try again.
+1. Wait a few minutes and click **Smart Search** again.
 2. Use the normal gloss search in the meantime.
 
 **Still stuck?** Send the sentence ID, the full error text and the time.
@@ -126,45 +127,19 @@ Problems in the two sentence editors: **subBeta8**, the video and EAF editor wit
 
 **Still stuck?** Not needed.
 
-### Auto-segmentation shows an error dialog {#ed-segmentation-error}
+### Segment or Spot shows an error dialog {#ed-segmentation-error}
 
 **Type:** both · **Who can fix:** you / administrator
 
-**Likely cause:** the dialog names the reason. "No video loaded yet." means you clicked too early. "No segments detected in the video." means the segmenter found nothing. "No “Signbank ID glossen” segments to spot." means you ran Spot before Segment.
+**Likely cause:** the dialog names the reason. "No video loaded yet." means you clicked too early. "No segments detected in the video." means the segmenter found nothing. "No “Signbank ID glossen” segments to spot." means you ran **Spot** before **Segment**. "Segmentation failed: segment HTTP …" or "Could not upload video to the spotter: …" means the AI service did not answer. On a demo host that is expected: the AI services only run on `signcollect.nl`.
 
 **Try this:**
 
 1. Wait until the video plays.
-2. Run **Segment** first, then **Spot**.
-3. If you see "Segmentation failed: …" or "Could not upload video to the spotter: …", report it.
+2. Run **Segment** first, then **Spot**, or use **Segment + Spot**.
+3. If you see "Segmentation failed" or "Could not upload video to the spotter" on `signcollect.nl`, report it.
 
 **Still stuck?** Send the sentence ID and the exact dialog text.
-
-### "WebSocket connection error. Make sure ISS Server is running." {#ed-websocket}
-
-**Type:** both · **Who can fix:** you / administrator
-
-**Likely cause:** auto-segmentation uses a live connection to a service on the server. That service is down, or your network blocks this kind of connection.
-
-**Try this:**
-
-1. Try again once.
-2. If you are on a guest or company network, try another network.
-3. If it still fails, report it.
-
-**Still stuck?** Send the time, your network (for example "UvA Wi-Fi"), and the exact message.
-
-### "Segmentation is already in progress. Please wait." {#ed-segmentation-busy}
-
-**Type:** user error · **Who can fix:** you
-
-**Likely cause:** you clicked Segment again while the first run is still busy.
-
-**Try this:**
-
-1. Wait until the progress dialog closes.
-
-**Still stuck?** If the progress dialog does not close after several minutes, reload the page and send the sentence ID.
 
 ### 3DAnn3: "Please wait for base character to load first" {#ed-3d-loading}
 
@@ -221,15 +196,15 @@ Problems in the two sentence editors: **subBeta8**, the video and EAF editor wit
 
 **Still stuck?** Send the sentence ID and the exact toast text.
 
-### 3DAnn3: nothing happens when I click to open the 2D video {#ed-3d-popup}
+### 3DAnn3: nothing happens when I click View 2D Video {#ed-3d-popup}
 
 **Type:** user error · **Who can fix:** you
 
-**Likely cause:** the video opens in a new tab, and your browser blocked the pop-up.
+**Likely cause:** **View 2D Video** opens the studio video in a new tab, and your browser blocked the pop-up. If the editor shows "No 2D studio video found for this animation", there is no studio video for this take.
 
 **Try this:**
 
 1. Allow pop-ups for `signcollect.nl` (see [Pop-ups are blocked](browser.md#br-popups)).
-2. Click the button again.
+2. Click **View 2D Video** again.
 
-**Still stuck?** If the new tab says "No 2D studio video found for this animation", send the sentence ID.
+**Still stuck?** If it says "No 2D studio video found for this animation", send the sentence ID and the take ID.

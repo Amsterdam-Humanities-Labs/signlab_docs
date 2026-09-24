@@ -3,7 +3,7 @@
 Problems in the annotation tool v3 and its modes: the default mode for your own videos, **webcam** mode, and **clusters** mode. The old v1, v2, webcam and clusters addresses now redirect to v3.
 
 !!! note "Where the tool works"
-    The default mode runs in your browser. It has no login and uploads nothing to your account. The AI features (segmenting, spotting, Smart Search) only work on `signcollect.nl`; on a demo host they do nothing, without an error.
+    The default mode runs in your browser. It has no login and uploads nothing to your account. The AI features (segmenting, spotting, Smart Search) and the fast server conversion only work on `signcollect.nl`. On a demo host, segmenting fails with "Auto-segmentation failed: segment HTTP 404", and video conversion falls back to the slower conversion in your browser.
 
 ### "Autosave needs Chrome/Edge (File System Access API)." {#at-autosave-browser}
 
@@ -115,13 +115,14 @@ Problems in the annotation tool v3 and its modes: the default mode for your own 
 
 **Type:** both · **Who can fix:** you / administrator
 
-**Likely cause:** "No video loaded to segment." means no video is open. "No segments detected in the video." means the segmenter found no signs. "segment HTTP …" means the segmenter on the server failed.
+**Likely cause:** "No video loaded to segment." means no video is open. "No segments detected in the video." means the segmenter found no signs. "Auto-segmentation failed: segment HTTP …" means the segmenter on the server failed or is not there. "Segmentation is already in progress. Please wait." means an earlier run is still busy.
 
 **Try this:**
 
 1. Load a video first and let it play.
-2. Check that you are on `signcollect.nl`, not a demo host.
-3. If you see an HTTP code, report it.
+2. If a run is busy, wait until the progress window closes.
+3. Check that you are on `signcollect.nl`, not a demo host.
+4. If you see an HTTP code on `signcollect.nl`, report it.
 
 **Still stuck?** Send the video name, the HTTP code and the time.
 
@@ -138,11 +139,11 @@ Problems in the annotation tool v3 and its modes: the default mode for your own 
 
 **Still stuck?** Send the video name, the time and how many boxes failed.
 
-### Smart Search says it needs a video filename or is unavailable {#at-smart-search}
+### "Smart search requires a video filename (not available in standalone mode)." {#at-smart-search}
 
 **Type:** user error · **Who can fix:** you
 
-**Likely cause:** Smart Search (handshape search) only works on videos the server knows. It does not work on a video you dropped from your own computer, or when you are offline.
+**Likely cause:** Smart Search (handshape search) only works on studio videos the server knows. It does not work on a video you dropped from your own computer, or when you are offline.
 
 **Try this:**
 
@@ -183,14 +184,15 @@ Problems in the annotation tool v3 and its modes: the default mode for your own 
 
 **Type:** both · **Who can fix:** you / administrator
 
-**Likely cause:** 401 means your SignCollect session expired. Saving also only works on the same site: a link copied to another domain cannot save. Other codes mean the server could not store the review.
+**Likely cause:** the save button shows "Opslaan mislukt!" when a save fails; the status drop-down shows "Status opslaan mislukt: save HTTP …". 401 means your SignCollect session expired. Saving also only works on the same site: a link copied to another domain cannot save. Other codes mean the server could not store the review.
 
 **Try this:**
 
-1. Log in again on `signcollect.nl` in another tab.
-2. Open clusters mode from the menu, not from a copied link.
-3. Try saving again.
-4. If you see anything other than 401, report it.
+1. Keep the tab open.
+2. Log in again on `signcollect.nl` in another tab.
+3. Back in the tool, make a small edit. The button should change to **Opgeslagen op server**.
+4. For the next video, open it with **open ▶** on the [Segmented videos page](../guides/review-clusters.md#3-correct-the-segments-of-each-video), not from a copied link.
+5. If you see anything other than 401, report it.
 
 **Still stuck?** Send the video name, the exact toast text and the time.
 
@@ -198,11 +200,12 @@ Problems in the annotation tool v3 and its modes: the default mode for your own 
 
 **Type:** user error · **Who can fix:** you
 
-**Likely cause:** the link is incomplete, or no corrected EAF exists yet for this video.
+**Likely cause:** the segment view (`/annotation-tool/clusters/segview.html`) shows the pipeline's own segments of one video. No page links to it, so the address must be typed in full, with both parts. "Failed to load EAF" means the `eaf=` part points to a file that does not exist.
 
 **Try this:**
 
-1. Open the page from the cluster list.
-2. Save a correction for the video first.
+1. Use this address, with the video name in both places:
+   `segview.html?video=/annotation-tool/clusters/vid/<video>.mp4&eaf=/annotation-tool/clusters/out/eaf/<video>.eaf`
+2. To look at and correct a video, use **open ▶** on the Segmented videos page instead.
 
 **Still stuck?** Send the address you used.

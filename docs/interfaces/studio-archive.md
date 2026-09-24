@@ -1,9 +1,9 @@
 # Studio archive
 
 The studio archive (studio-archive, **Studio Index**) lets you browse every
-studio take by date. Each take shows the gloss or sentence and up to five
-camera angles. For a chosen date it also checks whether all recordings arrived
-and were processed.
+studio take by date. Each take shows the gloss or sentence and its camera
+angles (three to five, depending on how many cameras recorded). Use it the day
+after a recording session to check that all takes arrived and were processed.
 
 The archive only reads. You cannot change or delete takes here.
 
@@ -15,6 +15,8 @@ The archive only reads. You cannot change or delete takes here.
 
 - Go to <https://signcollect.nl/studioIndex/>, or
 - in the [gloss management](main-menu.md) menu, choose **Studio Videos**.
+
+You now see the takes of the latest recording day, with its status line.
 
 <!-- screenshot: Studio Index with date filter, status line and take cards, page /studioIndex/ -->
 
@@ -62,9 +64,12 @@ video. Takes are listed 100 per page.
 ### Check a recording day
 
 1. Choose the date in **Filter by Date**.
-2. Read the status line. Compare **CameraRecords** with **Matched**, and
-   **Matched** with **PostProcessed**.
-3. Look for both confirmation messages.
+   You now see the status line under the filters.
+2. Compare **CameraRecords** with **Matched**. A big gap means takes were
+   logged in Camera Control but their videos are not on the server.
+3. Compare **Matched** with **PostProcessed**. A big gap means videos arrived
+   but are not rendered and cropped yet.
+4. Look for both confirmation messages.
 
 The full check is in
 [Check that a day's recordings are complete](../guides/check-day-complete.md).
@@ -75,9 +80,10 @@ The full check is in
 2. Find the take and play the angles.
 
 !!! tip "Processing takes time"
-    New takes are rendered about every hour and cropped about every 15
-    minutes. On the day of recording, *PostProcessed* is often lower than
-    *Matched*. Check again the next day.
+    The studio Mac (DRS) uploads the videos at the end of the capture day, and
+    processing follows after that. On the day of recording, *Matched* and
+    *PostProcessed* are often lower than *CameraRecords*. Check again the next
+    day.
 
 ## Related
 

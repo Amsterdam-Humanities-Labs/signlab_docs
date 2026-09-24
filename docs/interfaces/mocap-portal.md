@@ -1,7 +1,7 @@
 # Mocap portal
 
-The mocap portal (mocap_site) is the start page for the motion-capture tools.
-It has four links.
+The mocap portal (mocap_site, **Motion Capture Portal**) is the start page
+for the motion-capture tools. It has four links.
 
 - **Who uses it:** the mocap team: operators, post-processing engineers and
   researchers.
@@ -22,29 +22,36 @@ It has four links.
 
 | Link | Goes to | What it is for |
 |---|---|---|
-| File Manager | `/animMIDI/public/index.php` | Post-processing: download FBX recordings, clean them up, upload them again (see below) |
-| 3D Studio | `/mocapStudio/capture.html` | The [Motion Capture Studio](mocap-studio.md) page used during a session |
-| Avatar Player | `https://avatar.signcollect.nl/blendAnims/` | Plays the finished animations on an avatar |
-| Vicon Dashboard | `/viconDashboard/` | The [Vicon dashboard](vicon-dashboard.md): which recordings arrived |
+| **Motion Capture File Manager** | `/animMIDI/public/index.php` | Post-processing: download FBX recordings, clean them up, upload them again (see below) |
+| **3D Studio Capture Site** | `/mocapStudio/capture.html` | The [Motion Capture Studio](mocap-studio.md) page used during a session |
+| **signCollect Avatar Player** | `https://avatar.signcollect.nl/blendAnims/` | Plays the finished animations on an avatar. Not on demo hosts |
+| **Vicon Dashboard Sync** | `/viconDashboard/` | The [Vicon dashboard](vicon-dashboard.md): which recordings arrived |
 
 ## File Manager (post-processing)
 
-The File Manager (mocap-postprocessing) is where engineers clean up mocap
-recordings. It lists the recordings by date.
+The File Manager (mocap-postprocessing, **Motion Capture File Manager**) is
+where engineers clean up mocap recordings. It lists the recordings by date.
+The counters at the top show how many are **Unprocessed** and **Processed**.
 
-- **Filters:** processing status, *MCP Klaar* and whether an EAF exists. A
-  recording is *MCP Klaar* when, in the Zinnen interface, *MCP - Status
-  Postprocessing* is *Klaar* and *MCP - Status Tijd Annotatie Gloss* is
-  *Klaar*.
+- **Filters:** **Search**, **Processing Status** (**Unprocessed Only**,
+  **Processed Only**, **All Files**), **Filter by Date**, **Label** (BAK, ZNN,
+  HH, Sencity), **MCP Status** and **Files per page**. Click **Apply Filter**.
+  **MCP Klaar + EAF beschikbaar** shows only recordings that are *MCP Klaar*
+  and have an EAF. A recording is *MCP Klaar* when, in the Zinnen interface,
+  *MCP - Status Postprocessing* and *MCP - Status Tijd Annotatie Gloss* are
+  both *Klaar*.
 - **Download:** one FBX, or a ZIP with the FBX and the reference video.
-- **Download EAF/SRT:** the annotation files of many recordings at once. Only
-  recordings marked *MCP Klaar*, at most 100 per download.
+  **Download Selected** downloads the ticked recordings.
+- **Download Selected (EAF):** the EAF/SRT annotation files of the ticked
+  recordings. Only recordings marked *MCP Klaar*, at most 100 per download.
 - **Upload Processed Files:** upload cleaned FBX files, by drag and drop or as
   a ZIP.
 - **Review:** mark a recording as approved, needs review or rejected, and add a
   comment.
-- **Capture Toewijzingen** (assignments): assign recording dates to users.
-- **Statistieken:** activity per user and over time.
+- **Toewijzingen** (in the header; page **Capture Toewijzingen**): assign
+  recording dates to users.
+- **Statistieken** (in the header): downloads, uploads and activity per user
+  and over time.
 
 <!-- screenshot: File Manager recording list with filters, page /animMIDI/public/index.php -->
 
@@ -53,7 +60,8 @@ recordings. It lists the recordings by date.
 
 ### Clean up a recording
 
-1. Filter on recordings that are not processed yet.
+1. Set **Processing Status** to **Unprocessed Only** and click **Apply
+   Filter**.
 2. Download the FBX, or the ZIP with the reference video.
 3. Clean the animation up in Unreal.
 4. Upload the processed FBX under **Upload Processed Files**.

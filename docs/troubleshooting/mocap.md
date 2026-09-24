@@ -9,13 +9,13 @@ Problems with Vicon captures: syncing files from the Vicon PC, viconDashboard, t
 
 **Type:** both · **Who can fix:** you
 
-**Likely cause:** the Vicon sync runs once a day at night. Captures from today only arrive after the next run, unless someone starts it by hand.
+**Likely cause:** the Vicon sync runs once a day, at 02:30. Captures from today only arrive after the next run, unless someone starts it by hand.
 
 **Try this:**
 
-1. Open the mocap studio page.
-2. Click **Manual Sync**.
-3. Wait for the status line to show "idle — last run N downloaded, N errors".
+1. Open the [Motion Capture Studio](../interfaces/mocap-studio.md) page.
+2. Click **Manual Sync**, then **Yes, sync now**.
+3. Wait for the status line to show "Mocap (FBX/GLB): idle — last run N downloaded, N errors".
 
 **Still stuck?** Send the capture date, the take name and the status text.
 
@@ -23,7 +23,7 @@ Problems with Vicon captures: syncing files from the Vicon PC, viconDashboard, t
 
 **Type:** both · **Who can fix:** you / administrator
 
-**Likely cause:** the Vicon PC is off, not logged in, or not on the lab network. After a Windows reinstall the PC gets a new network name, and the sync has to find it again.
+**Likely cause:** the Vicon PC is off, not logged in, or not on the lab network. After a Windows reinstall the PC gets a new network name and address. The sync looks for the newest one by itself, but only while the PC is online.
 
 **Try this:**
 
@@ -51,12 +51,13 @@ Problems with Vicon captures: syncing files from the Vicon PC, viconDashboard, t
 
 **Type:** both · **Who can fix:** you / administrator
 
-**Likely cause:** "Network error" is a problem between your browser and SignCollect. "Error (HTTP …)" means the sync service did not answer.
+**Likely cause:** "Network error" is a problem between your browser and SignCollect. "Error (HTTP 502): … sync service unreachable" means the Vicon sync service on the server is not running. On a demo host this is expected: it has no Vicon sync.
 
 **Try this:**
 
-1. Reload the page and click **Retry**.
-2. If "Error (HTTP …)" returns, report it.
+1. Click **Retry** in the same dialog.
+2. If it fails again, reload the page and try once more.
+3. If "Error (HTTP …)" returns, report it.
 
 **Still stuck?** Send the time and the full error text.
 
@@ -64,7 +65,7 @@ Problems with Vicon captures: syncing files from the Vicon PC, viconDashboard, t
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** the mocap files sync as normal, but the Blackmagic video copy on the Vicon PC did not start.
+**Likely cause:** the mocap files sync as normal, but the Blackmagic copy to the research drive did not start. Manual Sync also starts that copy on the Vicon PC; the text after the colon says why it failed.
 
 **Try this:**
 
@@ -140,7 +141,7 @@ Problems with Vicon captures: syncing files from the Vicon PC, viconDashboard, t
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** the page lost its connection to the Unreal relay. It tries again every 5 seconds. The relay is started by hand.
+**Likely cause:** the page lost its connection to the Unreal relay. It tries again every 5 seconds. The relay runs on the studio computer and is started by hand.
 
 **Try this:**
 
@@ -207,12 +208,13 @@ Problems with Vicon captures: syncing files from the Vicon PC, viconDashboard, t
 
 **Type:** user error · **Who can fix:** you
 
-**Likely cause:** "Klaar" needs the post-processing status set and the Gloss field set to "Klaar". "+EAF" also needs an EAF for this take. An EAF for the whole broadcast does not count.
+**Likely cause:** "MCP Klaar" needs both *MCP - Status Postprocessing* done and *MCP - Status Tijd Annotatie* set to *Klaar*. The badge says which one is missing: "PP niet klaar", "TA niet klaar" or both. "geen zin gekoppeld" means the file is not linked to a sentence. The filter "MCP Klaar + EAF beschikbaar" also needs an EAF for this take. An EAF for the whole broadcast does not count.
 
 **Try this:**
 
-1. Set both fields.
-2. Make sure the take has its own EAF.
+1. Hover over the badge to see both statuses.
+2. Set the status that is not *Klaar*.
+3. Make sure the take has its own EAF.
 
 **Still stuck?** Send the file name.
 
@@ -242,11 +244,11 @@ Problems with Vicon captures: syncing files from the Vicon PC, viconDashboard, t
 
 **Still stuck?** Send the take name and capture date.
 
-### The GLB viewer rejects my upload or shows "Failed to load file list." {#mo-glb-viewer}
+### The GLB viewer rejects my upload, or the SAM 3D viewer shows "Failed to load file list." {#mo-glb-viewer}
 
 **Type:** both · **Who can fix:** you / administrator
 
-**Likely cause:** only `.glb` files are accepted, and empty files are refused. "Failed to load file list." means the server did not answer.
+**Likely cause:** the GLB viewer (`/s3b_glb/`) only accepts `.glb` files ("Only .glb files are allowed") and refuses empty ones ("File is empty"). In the SAM 3D body viewer, "Failed to load file list." means the server did not answer. Neither viewer is on demo hosts.
 
 **Try this:**
 
@@ -285,14 +287,16 @@ Problems with Vicon captures: syncing files from the Vicon PC, viconDashboard, t
 
 **Type:** system error · **Who can fix:** administrator
 
-**Likely cause:** the inventory has not been built on this server yet, or its last build failed.
+**Likely cause:** the inventory has not been built on this server yet, or its last build failed. No schedule builds it; an administrator runs it.
 
 **Try this:**
 
-1. Wait an hour and reload; the inventory is rebuilt on the server.
-2. If it stays, ask an administrator to run the inventory build (about 30 minutes).
+1. Ask an administrator to run the inventory build.
 
 **Still stuck?** Send the page address and the time.
+
+!!! note "For the administrator"
+    Run `python3 /web/mocapOverview/build_inventory.py` on the server. A full build takes about 30 minutes; `--files-only` rebuilds only the API file index (about 5 minutes). The log is `data/build.log`.
 
 ### The mocap file API answers 401 {#mocap-overview-401}
 
@@ -303,7 +307,7 @@ Problems with Vicon captures: syncing files from the Vicon PC, viconDashboard, t
 **Try this:**
 
 1. Send the key in the `X-API-Key` header when you script against the API.
-2. In the browser, log in on `/mocapOverview/` first; the playground on `/mocapOverview/api/` then works without a key.
+2. In the browser, log in on `/mocapOverview/` first, with the overview's own page password. The playground on `/mocapOverview/api/` then works without a key.
 3. Ask an administrator for a new key if yours stopped working.
 
 **Still stuck?** Send the request you made (without the key) and the time.

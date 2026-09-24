@@ -14,7 +14,7 @@ Many SignCollect pages do their work in your browser: playing and stepping throu
 2. If that does not help, clear the site data for `signcollect.nl` in your browser settings.
 
 !!! warning
-    Clearing site data also resets saved filters, the annotation tool's autosave folder and its cached converted videos. Your saved EAF files are not affected.
+    Clearing site data also logs you out, and resets saved filters, the annotation tool's autosave folder and its cached converted videos. EAF files saved on the server or in your folder are not affected.
 
 **Still stuck?** Send the page address and what you expected to change.
 
@@ -48,7 +48,7 @@ Many SignCollect pages do their work in your browser: playing and stepping throu
 
 **Type:** user error · **Who can fix:** you
 
-**Likely cause:** some buttons open a new tab, for example "open 2D video" in 3DAnn3. Your browser blocks it.
+**Likely cause:** some buttons open a new tab, for example **View 2D Video** in 3DAnn3. Your browser blocks it.
 
 **Try this:**
 
@@ -87,7 +87,6 @@ Many SignCollect pages do their work in your browser: playing and stepping throu
 
 ### The 3D avatar does not appear {#br-webgl}
 
-
 **Type:** user error · **Who can fix:** you
 
 **Likely cause:** the 3D viewers need WebGL. It is off, or your computer's graphics are too weak.
@@ -102,16 +101,15 @@ Many SignCollect pages do their work in your browser: playing and stepping throu
 
 ### The page is blank or buttons do nothing {#br-blank}
 
-
 **Type:** both · **Who can fix:** you / administrator
 
-**Likely cause:** a script failed to load, often because of a browser extension (ad or script blocker) or a cached old version.
+**Likely cause:** a script failed to load, often because of a browser extension (ad or script blocker) or a cached old version. Many pages also load libraries from public sites such as `code.jquery.com` and `cdn.jsdelivr.net`; a network that blocks those breaks the page.
 
 **Try this:**
 
 1. Force-reload (see [cache](#br-cache)).
 2. Turn off ad blockers and script blockers for `signcollect.nl`.
-3. Try a private window.
+3. Try a private window, or another network.
 4. If it still fails, open the browser console (`F12`) and copy the red error lines.
 
 **Still stuck?** Send the page address, the browser, and the red console lines.

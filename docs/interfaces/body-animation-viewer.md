@@ -35,20 +35,25 @@ The old address `/s3b_glb/gs.html` sends you to Gebarenstrand.
 - **Queue:** drop animation files on **Drop animation files here** to play them
   in a row. You can name the queue.
 - **☰** opens and closes the side panel **GLB Files**, which holds the search
-  field and the results.
+  field, the results and your **Saved Queues**.
+- The timeline at the bottom plays, pauses and scrubs the current animation.
+- A drop-down switches the avatar between **Default (no texture)** and
+  **Textured**.
 
 ## Common tasks
 
 ### Watch a sign
 
-1. Type the gloss in the search field.
-2. Click a result. It plays on the avatar.
+1. Click **☰** to open **GLB Files**.
+2. Type the gloss in **Search gloss...**.
+3. Click a result. It plays on the avatar.
 
 ### Play a sentence
 
 1. Click **✍** to open the sentence panel.
-2. Type a Dutch sentence.
-3. Click **▶ Afspelen**.
+2. Type a Dutch sentence in **Typ een Nederlandse zin...**. A word card
+   appears for each word.
+3. Click **▶ Afspelen**. The signs play one after the other.
 
 !!! note "First visit after an update"
     The first page load after an update rebuilds the search lists. It can take

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {{ super() }}
+  {% if page and page.file %}
+  <hr>
+  <p class="page-feedback">
+    Something wrong or unclear on this page?
+    <a href="{{ config.repo_url }}/issues/new?title={{ ('Docs: ' ~ page.title) | urlencode }}&body={{ ('Page: ' ~ page.canonical_url ~ '\n\nWhich sentence or step:\n\nWhat is wrong or unclear:\n') | urlencode }}"
+       target="_blank" rel="noopener">Report a problem with this page</a>.
+    Quote the sentence or step you mean.
+  </p>
+  {% endif %}
+{% endblock %}

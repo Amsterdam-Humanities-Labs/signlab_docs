@@ -25,10 +25,12 @@ camera file, for example `M20251001_2313`.
 
 ## The screen
 
-- **Search:** type part of a file name, for example `M20251001_2313`. Partial
-  names match.
-- **Populate from "GEBAAR UIT DE BEELD":** adds every gloss that carries the
-  label *GEBAAR UIT DE BEELD* (sign out of frame) to the queue.
+- **Search:** type part of a file name, for example `M20251001_2313`, and
+  click **Search**. Partial names match.
+- **Populate from "GEBAAR UIT DE BEELD":** adds the takes of every gloss that
+  carries the label *GEBAAR UIT DE BEELD* (sign out of frame) to the queue.
+  Takes already in the queue are skipped. These entries do not have
+  **OOB: Bottom** set.
 - Three tabs, each with a count:
     - **Search Results**
     - **Unresolved:** fixes that wait for the pipeline.
@@ -42,18 +44,25 @@ camera file, for example `M20251001_2313`.
 | **Fixed** | All three angles are re-rendered |
 
 Before you click **Fix Crop**, tick **OOB: Bottom** if the sign also goes out
-of the frame at the bottom. Top, left and right are always widened. **Reset**
-removes a requested fix, so you can submit it again.
+of the frame at the bottom. Top, left and right are always widened. Once a fix
+is requested, the button is greyed out and **Reset** appears. **Reset**
+removes the request, so you can submit it again, for example with **OOB:
+Bottom** ticked.
 
 ## Common tasks
 
 ### Queue a badly cropped take
 
-1. Search for the take by its file name.
-2. Tick **OOB: Bottom** if the hands leave the frame at the bottom.
-3. Click **Fix Crop**. The button changes to **Pending**.
-4. Check back later. When all three angles are done, the take moves to
-   **Resolved** and the button shows **Fixed**.
+1. Find the file name of the take, for example in the
+   [studio archive](studio-archive.md). Use the middle camera file (`M…`).
+2. Type it in the search field and click **Search**.
+   You now see the take under **Search Results**, with its L, M and R video.
+3. Tick **OOB: Bottom** if the hands leave the frame at the bottom.
+4. Click **Fix Crop**.
+   The button changes to **Pending** and the take is added to
+   **Unresolved**.
+5. Check back later. When all three angles are cropped again, the take moves
+   to **Resolved** and the button shows **Fixed**.
 
 The full workflow is in [Fix a badly cropped take](../guides/fix-crop.md).
 
