@@ -1,8 +1,51 @@
 # Studio troubleshooting
 
-Start here when something in the recording studio does not work. The first
-table sends you to the right page. The rest of this page covers problems
-while **setting up** a studio.
+Start here when something in the recording studio does not work. Look at
+the Status tab first; the table after it sends you to the right page. The
+rest of this page covers problems while **setting up** a studio.
+
+## Look at the Status tab first
+
+The controller app on the studio Mac (*FX30 Multi-Camera Bediening*) has a
+**Status** tab. It checks the studio every minute and shows one light per
+part: green is fine, orange needs attention, red is broken. The tab itself
+turns orange or red and shows **⚠** when something is not green, so you see
+it from the **Camera's** tab too.
+
+![The Status tab: nine rows with a green or orange light, a line of detail, and a Hulp button on the rows that need attention](../assets/studio/status-tab.png)
+
+1. Open the controller app and click the **Status** tab.
+2. Read the rows that are not green. The line with **→** says what to do.
+3. Click **Hulp** on that row. It opens the entry on this page (or the
+   camera page) that belongs to it.
+4. Click **↻ Vernieuwen** to check again straight away.
+
+| Row | Green when | If not, see |
+|---|---|---|
+| Research drive | It is mounted and readable, with room on its cache disk | [The research drive is not mounted](#studio-research-drive) |
+| External disk | `cacheDisk` is mounted and more than 15% is free | [The external disk is not found](#studio-cachedisk) |
+| DaVinci Resolve | The last hourly batch finished without errors. While a batch runs, it shows how many clips are done | [DaVinci Resolve does not render](#studio-resolve) |
+| Pipeline | The start-up job and all its services are running | [The pipeline does not start](#studio-pipeline-start) |
+| Cameras | Every camera is connected. Orange with all cameras off is normal outside a session | [Troubleshooting FX30 connections](troubleshooting-fx30.md) |
+| QR screen | The QR page is open | [The QR screen does not open](#studio-qr-screen) |
+| Network | The Mac is online, Tailscale is connected and the SignCollect server answers | [Camera Control cannot reach the cameras](#studio-camera-server) |
+| Uploads | No recording has waited more than a day to be uploaded | [Takes never arrive on the server](#studio-no-upload) |
+| Crop fixes | The server accepts the Mac's crop-fix token | [Crop fixes are no longer picked up](../troubleshooting/video-processing.md#vp-crop-token) |
+
+Resolve is judged by its last batch, not by whether it is open: the pipeline
+starts and stops Resolve every hour.
+
+!!! tip "For administrators: the same list over ssh"
+    The tab runs a small read-only program that you can also run yourself:
+
+    ```bash
+    /usr/bin/python3 /Users/signlab/drs/tools/health.py
+    ```
+
+    It prints the same nine lines with what to do, and exits with 0 (all
+    fine), 1 (warnings) or 2 (problems). Add `--json` for scripts. If the tab
+    says *health.py niet gevonden*, that file is missing from the pipeline
+    folder: update the pipeline, see [Install the DRS Mac](install-drs.md).
 
 ## What is wrong?
 

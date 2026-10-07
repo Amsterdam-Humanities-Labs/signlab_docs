@@ -19,7 +19,7 @@ uploaded to the SignCollect server by themselves.
 | Sony FX30 cameras (3 to 5) | Record every take from several angles: left (`L`), middle (`M`), right (`R`), and optionally `A` and `B` | Studio, on USB to DRS |
 | DRS, the studio Mac | Runs the camera server, the camera controller app and the video pipeline | Studio |
 | Camera server (`fx30MultiRecord`) | Starts and stops all cameras at once and downloads the clips. Listens on port 8080 | DRS |
-| Camera controller app (**FX30 Multi-Camera Bediening**) | Starts the camera server, opens the QR screen and uploads the clips to the research drive | DRS |
+| Camera controller app (**FX30 Multi-Camera Bediening**) | Starts the camera server, opens the QR screen and uploads the clips to the research drive. Its **Status** tab shows the [health of the studio](troubleshooting.md#look-at-the-status-tab-first) | DRS |
 | [Camera Control](../interfaces/camera-control.md) | The web page the operator records with | Browser on DRS, served by the SignCollect server |
 | QR screen (`opnameLR.html`) | Shows a QR code for the item being recorded. The cameras film it | Second or third screen on DRS, facing the cameras |
 | Video pipeline (signlab_drs-pipeline) | Renders the green screen in DaVinci Resolve Studio, crops, converts and uploads to the server | DRS |

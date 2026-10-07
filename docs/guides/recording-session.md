@@ -40,9 +40,10 @@ interfaces.
    later reads it to know which item each video belongs to.
 4. Turn on the sound of the studio computer, at 60% volume or more. Camera
    Control plays a beep at the start and end of each take and listens for it.
-5. Check that DRS is running its pipeline. If you are not sure, ask an
-   administrator.
-   <!-- DRS checks (startup script, storage mount, one camera controller) are in the drs-pipeline operator manual; admin level -->
+5. Check that the studio is healthy: in the controller app on the studio
+   Mac, click the **Status** tab. Every row should be green once the cameras
+   are on. For a row that is not, read the line with **→** and click
+   **Hulp** ([what each row means](../studio/troubleshooting.md#look-at-the-status-tab-first)).
 6. Open <https://signcollect.nl/studio_beta/opnameView.html>.
 7. Wait until *Wachten op qR desktop* disappears. It stays until the QR page
    is connected.
