@@ -175,6 +175,7 @@ Stop it with Ctrl-C and start the controller app again when you are done.
 
 ## Related
 
+- [Studio troubleshooting](troubleshooting.md)
 - [Install the DRS Mac](install-drs.md)
 - [Recording troubleshooting](../troubleshooting/recording.md)
 - [Camera Control](../interfaces/camera-control.md)

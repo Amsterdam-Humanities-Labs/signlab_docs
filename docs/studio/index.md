@@ -72,6 +72,7 @@ The step-by-step version for operators is in
 
 ## Related
 
+- [Studio troubleshooting](troubleshooting.md)
 - [Run a recording session](../guides/recording-session.md)
 - [Camera Control](../interfaces/camera-control.md)
 - [Studio archive](../interfaces/studio-archive.md)

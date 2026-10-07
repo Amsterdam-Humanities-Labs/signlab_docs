@@ -202,6 +202,7 @@ pipeline's operator manual (`docs/manual.md` in signlab_drs-pipeline).
 
 ## Related
 
+- [Studio troubleshooting](troubleshooting.md)
 - [Requirements](requirements.md)
 - [Physical setup](physical-setup.md)
 - [Troubleshooting FX30 connections](troubleshooting-fx30.md)
