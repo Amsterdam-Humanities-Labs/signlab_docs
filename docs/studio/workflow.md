@@ -114,6 +114,7 @@ Processing takes a few hours. The next day:
 
 ## Related
 
+- [Studio troubleshooting](troubleshooting.md)
 - [Run a recording session](../guides/recording-session.md)
 - [Camera Control](../interfaces/camera-control.md)
 - [Check that a day's recordings are complete](../guides/check-day-complete.md)

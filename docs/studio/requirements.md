@@ -68,6 +68,7 @@ mount.
 
 ## Related
 
+- [Studio troubleshooting](troubleshooting.md)
 - [Setting up a recording studio](index.md)
 - [Physical setup](physical-setup.md)
 - [Install the DRS Mac](install-drs.md)

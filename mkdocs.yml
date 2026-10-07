@@ -72,6 +72,7 @@ nav:
       - "Physical setup": studio/physical-setup.md
       - "Install the DRS Mac": studio/install-drs.md
       - "The capture day": studio/workflow.md
+      - "Studio troubleshooting": studio/troubleshooting.md
       - "Troubleshooting FX30 connections": studio/troubleshooting-fx30.md
   - Troubleshooting:
       - troubleshooting/index.md

@@ -27,7 +27,7 @@ Each issue has its own link. Click the ¶ sign next to a heading to copy it, and
 - **Use Chrome or Edge on a desktop computer.** Several tools need features other browsers lack. See [Browser problems](browser.md).
 - **Wait for the schedule.** Videos, mocap files and syncs arrive by scheduled jobs, not instantly. The studio PC uploads the day's recordings at the end of the day, so a recording from today may only appear tomorrow.
 - **Do not close a tab that says saving failed.** Your changes only live there.
-- **In the studio: check cables, power and batteries** before anything else. See [Recording sessions](recording.md).
+- **In the studio: check cables, power and batteries** before anything else. See [Recording sessions](recording.md). Setting up or repairing the studio itself: see [Studio troubleshooting](../studio/troubleshooting.md).
 
 ## What to send an administrator {#what-to-send}
 

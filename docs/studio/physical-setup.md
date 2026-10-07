@@ -94,6 +94,7 @@ to key presses, so any USB foot pedal that can send a key works.
 
 ## Related
 
+- [Studio troubleshooting](troubleshooting.md)
 - [Requirements](requirements.md)
 - [Install the DRS Mac](install-drs.md)
 - [The capture day](workflow.md)
