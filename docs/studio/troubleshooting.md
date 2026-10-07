@@ -22,6 +22,8 @@ while **setting up** a studio.
 ## Setting up the studio
 
 These entries follow the order of [Install the DRS Mac](install-drs.md).
+"The controller app" is the SignCollect studio app on the Mac; its window is
+called *FX30 Multi-Camera Bediening*.
 
 ### The setup script warns or stops {#studio-setup-script}
 
@@ -64,7 +66,15 @@ script names it in a line that starts with `warn`.
 interface. That needs the Studio edition, scripting switched on, and the
 project the pipeline expects.
 
-**Try this:**
+**Try this first:**
+
+1. Restart the Mac mini and log in again. Wait half an hour: the pipeline
+   then starts Resolve by itself.
+2. If it still does not start, check that the research drive is connected,
+   see [the research drive](#studio-research-drive). The pipeline waits for
+   it, and its password or API key may have been changed.
+
+**If that does not help:**
 
 1. Check that the installed edition is DaVinci Resolve **Studio**. The free
    edition has no external scripting.
@@ -86,7 +96,14 @@ macOS name contains the `display_screen` text in its `config.json`. If that
 screen is mirrored, or the name does not match, it has nowhere to go.
 Camera Control then stays on *Wachten op qR desktop*.
 
-**Try this:**
+**Try this first:**
+
+1. Click **🖥 QR-scherm openen** in the controller app.
+2. If the QR page still does not show, right-click the Chrome icon in the
+   Dock and look at the list of open windows. The QR page may be open on
+   the wrong screen: click it and drag it to the external monitor.
+
+**If that does not help:**
 
 1. Open **System Settings** > **Displays** and set the QR screen to
    **extend** the desktop, not mirror it.
@@ -99,17 +116,30 @@ Camera Control then stays on *Wachten op qR desktop*.
    the camera image.
 
 **Still stuck?** The QR page reaches Camera Control through the
-studioSupport service on the SignCollect server. Ask the server's
-administrator whether that service is running.
+studioSupport service on the SignCollect server, and that service may be
+offline. An administrator can check it over ssh on the server:
+
+```bash
+systemctl status studio-support
+```
 
 ### Camera Control warns "Niet alle cameras online" with every camera on {#studio-camera-list}
 
 **Who can fix:** administrator
 
-**Likely cause:** Camera Control counts against its camera list. Without a
-`cameras.json` it expects the lab's five cameras, by serial number.
+**Likely cause:** a camera lost its USB connection, or Camera Control counts
+against the wrong camera list. Without a `cameras.json` it expects the lab's
+five cameras, by serial number.
 
-**Try this:**
+**Try this first:**
+
+1. Turn all cameras off, wait one minute, and turn them on again.
+2. Check every USB cable, at the camera and at the Mac.
+3. Restart the controller app.
+4. If a camera is still missing: turn the cameras off, restart the Mac
+   mini, start the controller app, and only then turn the cameras on.
+
+**If the count itself is wrong** (a studio with fewer or other cameras):
 
 1. On the Mac, read the serials: `curl -s localhost:8080/api/status`. The
    serial is the ID in brackets in `"model"`.
@@ -127,11 +157,14 @@ Tailscale, at a fixed name.
 
 **Try this:**
 
-1. On the Mac, open <http://localhost:8080>. If no page loads, the camera
+1. Do the four steps under
+   [Camera Control warns "Niet alle cameras online"](#studio-camera-list)
+   first.
+2. On the Mac, open <http://localhost:8080>. If no page loads, the camera
    server is not running: start the controller app.
-2. Check that the Mac and the server are in the same tailnet
+3. Check that the Mac and the server are in the same tailnet
    (`tailscale status` on both).
-3. Open Camera Control with `?camhost=<the Mac's Tailscale name>:8080`. If
+4. Open Camera Control with `?camhost=<the Mac's Tailscale name>:8080`. If
    that works, set that name as `$DEFAULT_HOST` in `fx30proxy.php` on the
    server.
 
@@ -143,15 +176,20 @@ Tailscale, at a fixed name.
 **Who can fix:** administrator
 
 **Likely cause:** camera downloads and the rclone cache go to
-`/Volumes/cacheDisk`. The disk is not connected, or has another name.
+`/Volumes/cacheDisk`. The disk is not connected, has another name, or is
+broken.
 
 **Try this:**
 
-1. Connect the external disk and check it shows in Finder.
-2. Rename it to exactly `cacheDisk` (Finder > select the disk > Return).
-3. Check: `ls /Volumes/cacheDisk`.
-4. Run `scripts/setup-drs.sh --apply` again. It creates the folders on the
-   disk.
+1. Check the disk's cable and power, and that it shows in Finder.
+2. Open **Disk Utility** and select the disk. Run **First Aid** to see
+   whether it still works or is corrupted.
+3. If the disk is broken, replace it: format the new disk and name it
+   exactly `cacheDisk`.
+4. Check the name: `ls /Volumes/cacheDisk`. If the disk has another name,
+   rename it (Finder > select the disk > Return).
+5. After a new or reformatted disk, run `scripts/setup-drs.sh --apply`. It
+   creates the folders on the disk.
 
 ### The research drive is not mounted {#studio-research-drive}
 
@@ -161,7 +199,20 @@ Tailscale, at a fixed name.
 the mount is still starting. The pipeline needs this mount: all its paths
 are under it.
 
-**Try this:**
+**Try this first:**
+
+1. Check the internet connection of the Mac.
+2. Check that the research drive's own website can be reached.
+3. Check the API key (app password) of the research drive. It belongs to
+   one person's UvA account, at the moment Gomer Otterspeer's. If that
+   account or its password changed, the key stops working and must be
+   replaced: run `rclone config` and update the remote `signcollect:`.
+4. Check that rclone is up to date: `~/rclone/rclone version`.
+5. Check that macFUSE is installed, allowed and up to date, in **System
+   Settings** > **Privacy & Security** and **System Settings** >
+   **macFUSE**.
+
+**If that does not help:**
 
 1. Check the remote exists: `rclone listremotes` must list `signcollect:`.
    If not, run `scripts/setup-drs.sh --apply --rclone`.
@@ -189,15 +240,21 @@ check above.
 
 **Try this:**
 
-1. Start it by hand:
+1. Check the Python environment the pipeline uses:
+   `/usr/bin/python3 --version` must answer. If it does not, install the
+   command line tools: `xcode-select --install`.
+2. Start the pipeline by hand in Terminal, from its own folder:
 
     ```bash
-    launchctl kickstart gui/$(id -u)/nl.signcollect.drs-startup
+    cd /Users/signlab/drs
+    nohup /usr/bin/python3 startupScript.py > /dev/null 2>&1 &
     ```
 
-2. Check that it runs: `ps -p $(cat ~/drs/startup.pid)`.
-3. Read `tail -50 ~/drs/startup.log` for the reason.
-4. Open the [client monitor](../interfaces/client-monitor.md). The `drs-*`
+    On a Mac installed with the setup script you can also use
+    `launchctl kickstart gui/$(id -u)/nl.signcollect.drs-startup`.
+3. Check that it runs: `ps -p $(cat ~/drs/startup.pid)`.
+4. Read `tail -50 ~/drs/startup.log` for the reason if it stops again.
+5. Open the [client monitor](../interfaces/client-monitor.md). The `drs-*`
    clients should send heartbeats within a few minutes.
 
 ### Takes are recorded but never arrive on the server {#studio-no-upload}
@@ -209,11 +266,27 @@ It is wrong, or the pipeline is not running.
 
 **Try this:**
 
-1. Check the address: `grep SIGNCOLLECT_URL ~/drs/.env`.
-2. Check the Mac reaches it: `curl -sI "$(grep SIGNCOLLECT_URL ~/drs/.env | cut -d= -f2)" | head -1`.
-3. Check that the pipeline runs, see
+1. Check that the pipeline and its scripts are running:
+
+    ```bash
+    ps -p $(cat ~/drs/startup.pid)
+    pgrep -fl "convertFiles|moveFiles|batch_queue|crop.py"
+    ```
+
+2. If they are not, start the pipeline by hand, see
    [above](#studio-pipeline-start).
-4. Follow one take: see
+3. Look at what each script last did:
+
+    ```bash
+    tail -20 ~/drs/logs/convertFiles.log
+    tail -20 ~/drs/logs/moveFiles.log
+    tail -20 ~/drs/logs/batch.log
+    ```
+
+4. Check the server address: `grep SIGNCOLLECT_URL ~/drs/.env`. Without
+   that line the pipeline uploads to `https://signcollect.nl`.
+5. Check the Mac reaches the server: `curl -sI https://signcollect.nl | head -1`.
+6. Follow one take: see
    [Video processing: nothing is processed](../troubleshooting/video-processing.md#vp-pipeline-stopped)
    and [a clip was never rendered](../troubleshooting/video-processing.md#vp-never-rendered).
 
