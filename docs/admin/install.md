@@ -22,13 +22,19 @@ in the stack repository.
 ## Prerequisites
 
 1. **Ubuntu 24.04.** Other versions are not tested.
-2. **A normal user with passwordless sudo.** Every privileged step runs
-   without a prompt. If `sudo` stops to ask for a password, the install stops
-   half way. To set it up, run this as root (replace `gomer` with the user):
+2. **A normal user with sudo.** If `sudo` asks for a password, the install
+   asks for it once, at the start. Run it from a terminal so that it can ask.
+   The password is kept valid until the install ends and is not stored.
+
+    Over ssh, the install writes a temporary rule,
+    `/etc/sudoers.d/zz-signcollect-install`, and removes it when it ends.
+
+    Without a terminal (cron, CI), give the user passwordless sudo instead.
+    Run this as root, and replace `<user>` with the user's name:
 
     ```bash
-    echo 'gomer ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/gomer
-    chmod 440 /etc/sudoers.d/gomer
+    echo '<user> ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/<user>
+    chmod 440 /etc/sudoers.d/<user>
     ```
 
 3. **Tailscale, joined and logged in** (`sudo tailscale up`). The host's name
@@ -94,7 +100,7 @@ firewall.
     `--local` installs exactly what is on GitHub. A change you committed on
     your workstation but did not push yet is not included. To deploy that,
     install from the workstation over ssh (`scripts/install.sh --host
-    gomer@<host>`); see the full reference.
+    <user>@<host>`); see the full reference.
 
 ### If it stops half way
 
@@ -143,7 +149,7 @@ Signbank connector.
 !!! note "The scheduler suite needs ssh"
     `pythoncron-test.sh` inspects the host over ssh. Run on the host itself,
     it reports `FAILED`. To run it, use a workstation with ssh access:
-    `make test HOST=gomer@<host>` from a clone of the toolchain.
+    `make test HOST=<user>@<host>` from a clone of the toolchain.
 
 The tests write data and clean it up afterwards. They refuse to run against
 production.
