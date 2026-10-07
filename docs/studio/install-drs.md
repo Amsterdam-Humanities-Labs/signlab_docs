@@ -192,10 +192,14 @@ With `--rclone`, create on the research drive:
 5. Open <http://localhost:8080>. Every camera should be listed as connected.
 6. Open Camera Control on the server and check the camera count in the top
    bar.
-7. Open the [client monitor](../interfaces/client-monitor.md). The `drs-*`
+7. Click the **Status** tab in the controller app. Every row should be
+   green; with the cameras off, **Cameras** is orange. See
+   [Studio troubleshooting](troubleshooting.md#look-at-the-status-tab-first)
+   for what each row means.
+8. Open the [client monitor](../interfaces/client-monitor.md). The `drs-*`
    clients (for example `drs-converter`, `drs-batch-queue`) should send
    heartbeats.
-8. Record one test take and follow it through [the capture day](workflow.md).
+9. Record one test take and follow it through [the capture day](workflow.md).
 
 Service logs are in `~/drs/logs/<service>.log`. More checks are in the
 pipeline's operator manual (`docs/manual.md` in signlab_drs-pipeline).
